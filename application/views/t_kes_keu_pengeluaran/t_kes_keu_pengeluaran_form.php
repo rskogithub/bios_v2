@@ -3,7 +3,7 @@
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>INPUT DATA T_KES_KEU_PENGELUARAN</h2>
+                    <h2>INPUT DATA KEUANGAN - PENGELUARAN</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -28,7 +28,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width='200'>Akun</td>
+                                    <td width='200'>Nama Akun</td>
                                     <td>
                                         <?php echo select2_dinamis_custom('kd_akun', 'm_akun', 'kode', 'uraian', '', 'LEFT(kode, "1") = "5"', '') ?>
                                     </td>
@@ -46,6 +46,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data pada saat tanggal berkenaan, tidak bersifat akumulatif.
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data dikirimkan per periode harian.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

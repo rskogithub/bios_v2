@@ -70,7 +70,7 @@ class T_kes_keu_saldo_pengelolaan_kas extends CI_Controller
     {
         $tanggal = date('Y-m-d', strtotime($this->input->post('tgl_transaksi', TRUE)));
         $data = array(
-            'tgl_transaksi' => $this->input->post('tgl_transaksi', TRUE),
+            'tgl_transaksi' => $tanggal,
             'kdbank' => $this->input->post('kdbank', TRUE),
             'no_bilyet' => $this->input->post('no_bilyet', TRUE),
             'nilai_deposito' => $this->input->post('nilai_deposito', TRUE),

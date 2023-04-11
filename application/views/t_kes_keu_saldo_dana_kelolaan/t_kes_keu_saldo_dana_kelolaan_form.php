@@ -3,7 +3,7 @@
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>INPUT DATA KESEHATAN - SALDO PENGELOLAAN KAS</h2>
+                    <h2>INPUT DATA KEUANGAN - SALDO DANA KELOLAAN</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -43,22 +43,19 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width='200'>No Bilyet</td>
-                                    <td><input type="text" class="form-control" name="no_bilyet" id="no_bilyet" placeholder="No Bilyet" value="<?php echo $no_bilyet; ?>" /></td>
+                                    <td width='200'>No Rekening</td>
+                                    <td><input type="text" class="form-control" name="no_rekening" id="no_rekening" placeholder="No Rekening" value="<?php echo $no_rekening; ?>" /></td>
                                 </tr>
                                 <tr>
-                                    <td width='200'>Nilai Deposito</td>
-                                    <td><input type="number" class="form-control" name="nilai_deposito" id="nilai_deposito" placeholder="Nilai Deposito" value="<?php echo $nilai_deposito; ?>" /></td>
+                                    <td width='200'>Saldo Akhir</td>
+                                    <td><input type="text" class="form-control" name="saldo_akhir" id="saldo_akhir" placeholder="Saldo Akhir" value="<?php echo $saldo_akhir; ?>" /></td>
                                 </tr>
-                                <tr>
-                                    <td width='200'>Nilai Bunga</td>
-                                    <td><input type="number" class="form-control" name="nilai_bunga" id="nilai_bunga" placeholder="Nilai uang, bukan persentase bunga" value="<?php echo $nilai_bunga; ?>" /></td>
-                                </tr>
+
                                 <tr>
                                     <td></td>
                                     <td><input type="hidden" name="id" value="<?php echo $id; ?>" />
                                         <button type="submit" class="btn btn-warning waves-effect waves-themed"><i class="fal fa-save"></i> <?php echo $button ?></button>
-                                        <a href="<?php echo site_url('t_kes_keu_saldo_pengelolaan_kas') ?>" class="btn btn-info waves-effect waves-themed"><i class="fal fa-sign-out"></i> Kembali</a>
+                                        <a href="<?php echo site_url('t_kes_keu_saldo_dana_kelolaan') ?>" class="btn btn-info waves-effect waves-themed"><i class="fal fa-sign-out"></i> Kembali</a>
                                     </td>
                                 </tr>
                             </table>

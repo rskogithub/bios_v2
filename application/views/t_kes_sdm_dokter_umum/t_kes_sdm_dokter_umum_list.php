@@ -4,7 +4,7 @@
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>KELOLA DATA KEUANGAN - PENGELUARAN</h2>
+                    <h2>KELOLA DATA SDM - DOKTER UMUM</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -14,14 +14,17 @@
                 <div class="panel-container show">
                     <div class="panel-content">
                         <div class="text-center">
-                            <?php echo anchor(site_url('t_kes_keu_pengeluaran/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?></div>
+                            <?php echo anchor(site_url('t_kes_sdm_dokter_umum/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?></div>
                         <table class="table table-bordered table-hover table-striped w-100" id="dt-basic-example">
                             <thead>
                                 <tr>
                                     <th width="30px">No</th>
                                     <th>Tgl Transaksi</th>
-                                    <th>Nama Akun</th>
-                                    <th>Jumlah</th>
+                                    <th>PNS</th>
+                                    <th>PPPK</th>
+                                    <th>Anggota</th>
+                                    <th>Non Pns Tetap</th>
+                                    <th>Kontrak</th>
                                     <th>Message</th>
                                     <th>User</th>
                                     <th>Create Date</th>
@@ -96,7 +99,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                "url": "t_kes_keu_pengeluaran/json",
+                "url": "t_kes_sdm_dokter_umum/json",
                 "type": "POST"
             },
             columns: [{
@@ -105,9 +108,15 @@
                 }, {
                     "data": "tgl_transaksi"
                 }, {
-                    "data": "kd_akun"
+                    "data": "pns"
                 }, {
-                    "data": "jumlah"
+                    "data": "pppk"
+                }, {
+                    "data": "anggota"
+                }, {
+                    "data": "non_pns_tetap"
+                }, {
+                    "data": "kontrak"
                 }, {
                     "data": "message"
                 }, {

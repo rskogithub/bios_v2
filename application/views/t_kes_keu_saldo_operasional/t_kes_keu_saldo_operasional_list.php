@@ -4,7 +4,7 @@
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>KELOLA DATA T_KES_KEU_SALDO_OPERASIONAL</h2>
+                    <h2>KELOLA DATA KEUANGAN - SALDO OPERASIONAL</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -20,7 +20,7 @@
                                 <tr>
                                     <th width="30px">No</th>
                                     <th>Tgl Transaksi</th>
-                                    <th>Kdbank</th>
+                                    <th>Nama Bank</th>
                                     <th>No Rekening</th>
                                     <th>Unit</th>
                                     <th>Saldo Akhir</th>
