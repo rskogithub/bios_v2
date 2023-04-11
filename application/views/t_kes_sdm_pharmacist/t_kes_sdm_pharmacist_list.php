@@ -1,10 +1,9 @@
 <main id="js-page-content" role="main" class="page-content">
-    <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
     <div class="row">
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>KELOLA DATA SDM - TENAGA BIDAN</h2>
+                    <h2>KELOLA DATA SDM - PHARMACIST</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -14,14 +13,14 @@
                 <div class="panel-container show">
                     <div class="panel-content">
                         <div class="text-center">
-                            <?php echo anchor(site_url('t_kes_sdm_tenaga_bidan/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?></div>
+                            <?php echo anchor(site_url('t_kes_sdm_pharmacist/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?></div>
                         <table class="table table-bordered table-hover table-striped w-100" id="dt-basic-example">
                             <thead>
                                 <tr>
                                     <th width="30px">No</th>
                                     <th>Tgl Transaksi</th>
-                                    <th>PNS</th>
-                                    <th>PPPK</th>
+                                    <th>Pns</th>
+                                    <th>Pppk</th>
                                     <th>Anggota</th>
                                     <th>Non Pns Tetap</th>
                                     <th>Kontrak</th>
@@ -99,7 +98,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                "url": "t_kes_sdm_tenaga_bidan/json",
+                "url": "t_kes_sdm_pharmacist/json",
                 "type": "POST"
             },
             columns: [{

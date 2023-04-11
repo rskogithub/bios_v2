@@ -56,6 +56,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data pada saat tanggal berkenaan, bersifat akumulatif. Data yang dikirimkan merupakan jumlah pegawai sesuai kriteria. Termasuk Dokter Gigi Spesialis.
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data awal dikirimkan pada awal tahun berkenaan, updating data dikirimkan per periode semesteran/tahunan.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

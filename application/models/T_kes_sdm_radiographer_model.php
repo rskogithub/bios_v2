@@ -6,10 +6,11 @@ use GuzzleHttp\Psr7\Message;
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class T_kes_sdm_tenaga_bidan_model extends CI_Model
+
+class T_kes_sdm_radiographer_model extends CI_Model
 {
 
-    public $table = 't_kes_sdm_tenaga_bidan';
+    public $table = 't_kes_sdm_radiographer';
     public $id = 'id';
     public $order = 'DESC';
 
@@ -39,9 +40,9 @@ class T_kes_sdm_tenaga_bidan_model extends CI_Model
         ]);
     }
 
-    function insert_kes_sdm_tenaga_bidan($data)
+    function insert_kes_sdm_radiographer($data)
     {
-        $response = $this->_client->request('POST', 'kesehatan/sdm/bidan', [
+        $response = $this->_client->request('POST', 'kesehatan/sdm/radiographer', [
             'form_params' => $data
         ]);
         $result = json_decode($response->getBody()->getContents(), true);
@@ -63,20 +64,20 @@ class T_kes_sdm_tenaga_bidan_model extends CI_Model
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> ' . $result['message'] . '</strong></div>');
-            redirect(site_url('t_kes_sdm_tenaga_bidan'));
+            redirect(site_url('t_kes_sdm_radiographer'));
         } else {
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true"><i class="fal fa-times"></i></span>
                     </button><strong> ' . $result['message'] . '</strong></div>');
-            redirect(site_url('t_kes_sdm_tenaga_bidan'));
+            redirect(site_url('t_kes_sdm_radiographer'));
         }
         // return $result;
     }
 
-    function update_kes_sdm_tenaga_bidan($data)
+    function update_kes_sdm_radiographer($data)
     {
-        $response = $this->_client->request('POST', 'kesehatan/sdm/bidan', [
+        $response = $this->_client->request('POST', 'kesehatan/sdm/radiographer', [
             'form_params' => $data
         ]);
         $result = json_decode($response->getBody()->getContents(), true);
@@ -99,13 +100,13 @@ class T_kes_sdm_tenaga_bidan_model extends CI_Model
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> ' . $result['message'] . '</strong></div>');
-            redirect(site_url('t_kes_sdm_tenaga_bidan'));
+            redirect(site_url('t_kes_sdm_radiographer'));
         } else {
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true"><i class="fal fa-times"></i></span>
                     </button><strong> ' . $result['message'] . '</strong></div>');
-            redirect(site_url('t_kes_sdm_tenaga_bidan'));
+            redirect(site_url('t_kes_sdm_radiographer'));
         }
         // return $result;
     }
@@ -114,12 +115,12 @@ class T_kes_sdm_tenaga_bidan_model extends CI_Model
     function json()
     {
         $this->datatables->select('id,tgl_transaksi,pns,pppk,anggota,non_pns_tetap,kontrak,message,user,create_date');
-        $this->datatables->from('t_kes_sdm_tenaga_bidan');
+        $this->datatables->from('t_kes_sdm_radiographer');
         //add this line for join
-        //$this->datatables->join('table2', 't_kes_sdm_tenaga_bidan.field = table2.field');
-        // $this->datatables->add_column('action', anchor(site_url('t_kes_sdm_tenaga_bidan/read/$1'), '<i class="fal fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-xs')) . "
-        //     " . anchor(site_url('t_kes_sdm_tenaga_bidan/update/$1'), '<i class="fal fa-pencil" aria-hidden="true"></i>', array('class' => 'btn btn-warning btn-xs')) . "
-        //         " . anchor(site_url('t_kes_sdm_tenaga_bidan/delete/$1'), '<i class="fal fa-trash" aria-hidden="true"></i>', 'class="btn btn-danger btn-xs" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id');
+        //$this->datatables->join('table2', 't_kes_sdm_radiographer.field = table2.field');
+        // $this->datatables->add_column('action', anchor(site_url('t_kes_sdm_radiographer/read/$1'), '<i class="fal fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-xs')) . "
+        //     " . anchor(site_url('t_kes_sdm_radiographer/update/$1'), '<i class="fal fa-pencil" aria-hidden="true"></i>', array('class' => 'btn btn-warning btn-xs')) . "
+        //         " . anchor(site_url('t_kes_sdm_radiographer/delete/$1'), '<i class="fal fa-trash" aria-hidden="true"></i>', 'class="btn btn-danger btn-xs" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id');
         return $this->datatables->generate();
     }
 
@@ -200,8 +201,8 @@ class T_kes_sdm_tenaga_bidan_model extends CI_Model
     }
 }
 
-/* End of file T_kes_sdm_tenaga_bidan_model.php */
-/* Location: ./application/models/T_kes_sdm_tenaga_bidan_model.php */
+/* End of file T_kes_sdm_radiographer_model.php */
+/* Location: ./application/models/T_kes_sdm_radiographer_model.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2023-04-11 09:04:55 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2023-04-11 09:50:49 */
 /* http://harviacode.com */

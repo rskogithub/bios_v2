@@ -1,9 +1,10 @@
 <main id="js-page-content" role="main" class="page-content">
+    <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
     <div class="row">
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>INPUT DATA KEUANGAN - PENGELUARAN</h2>
+                    <h2>INPUT DATA SDM - RADIOGRAPHER</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -28,30 +29,40 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width='200'>Nama Akun</td>
-                                    <td>
-                                        <?php echo select2_dinamis_custom('kd_akun', 'm_akun', 'kode', 'uraian', '', 'LEFT(kode, "1") = "5"', '') ?>
-                                    </td>
+                                    <td width='200'>Pns</td>
+                                    <td><input type="number" class="form-control" name="pns" id="pns" placeholder="Pns" value="<?php echo $pns; ?>" /></td>
                                 </tr>
                                 <tr>
-                                    <td width='200'>Jumlah</td>
-                                    <td><input type="number" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah" value="<?php echo $jumlah; ?>" required /></td>
+                                    <td width='200'>Pppk</td>
+                                    <td><input type="number" class="form-control" name="pppk" id="pppk" placeholder="Pppk" value="<?php echo $pppk; ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <td width='200'>Anggota</td>
+                                    <td><input type="number" class="form-control" name="anggota" id="anggota" placeholder="Anggota" value="<?php echo $anggota; ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <td width='200'>Non Pns Tetap</td>
+                                    <td><input type="number" class="form-control" name="non_pns_tetap" id="non_pns_tetap" placeholder="Non Pns Tetap" value="<?php echo $non_pns_tetap; ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <td width='200'>Kontrak</td>
+                                    <td><input type="number" class="form-control" name="kontrak" id="kontrak" placeholder="Kontrak" value="<?php echo $kontrak; ?>" /></td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td><input type="hidden" name="id" value="<?php echo $id; ?>" />
                                         <button type="submit" class="btn btn-warning waves-effect waves-themed"><i class="fal fa-save"></i> <?php echo $button ?></button>
-                                        <a href="<?php echo site_url('t_kes_keu_pengeluaran') ?>" class="btn btn-info waves-effect waves-themed"><i class="fal fa-sign-out"></i> Kembali</a>
+                                        <a href="<?php echo site_url('t_kes_sdm_radiographer') ?>" class="btn btn-info waves-effect waves-themed"><i class="fal fa-sign-out"></i> Kembali</a>
                                     </td>
                                 </tr>
                             </table>
                         </form>
                         <div>
                             <p style="margin-bottom: 0px; color:red;">
-                                - Data transaksi penerimaan yang dikirimkan di-grouping per tanggal transaksi per akun. Data bersifat akumulatif sampai dengan posisi data pada tanggal transaksi berkenaan.
+                                - Data yang dikirimkan merupakan posisi data pada saat tanggal berkenaan, bersifat akumulatif. Data yang dikirimkan merupakan jumlah pegawai sesuai kriteria. Termasuk Dokter Sub Spesialis dan Dokter Spesialis Lain (sesuai dokumen RL.2).
                             </p>
                             <p style="margin-bottom: 0px; color:red;">
-                                - Data dikirimkan per periode harian. Data yang dikirimkan termasuk yang belum di SP3B/disahkan.
+                                - Data awal dikirimkan pada awal tahun berkenaan, updating data dikirimkan per periode semesteran/tahunan.
                             </p>
                         </div>
                     </div>

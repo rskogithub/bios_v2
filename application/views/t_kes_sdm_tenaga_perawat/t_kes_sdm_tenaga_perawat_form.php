@@ -28,11 +28,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width='200'>Pns</td>
+                                    <td width='200'>PNS</td>
                                     <td><input type="number" class="form-control" name="pns" id="pns" placeholder="Pns" value="<?php echo $pns; ?>" /></td>
                                 </tr>
                                 <tr>
-                                    <td width='200'>Pppk</td>
+                                    <td width='200'>PPPK</td>
                                     <td><input type="number" class="form-control" name="pppk" id="pppk" placeholder="Pppk" value="<?php echo $pppk; ?>" /></td>
                                 </tr>
                                 <tr>
@@ -56,6 +56,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data pada saat tanggal berkenaan, bersifat akumulatif. Data yang dikirimkan merupakan jumlah pegawai sesuai kriteria. Termasuk Dokter Sub Spesialis dan Dokter Spesialis Lain (sesuai dokumen RL.2).
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data awal dikirimkan pada awal tahun berkenaan, updating data dikirimkan per periode semesteran/tahunan.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

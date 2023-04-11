@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Jumlah</td>
-                                    <td><input type="text" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah" value="<?php echo $jumlah; ?>" required /></td>
+                                    <td><input type="number" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah" value="<?php echo $jumlah; ?>" required /></td>
                                 </tr>
                                 <tr>
                                     <td></td>

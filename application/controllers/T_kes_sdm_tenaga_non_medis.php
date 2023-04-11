@@ -3,31 +3,31 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class T_kes_sdm_tenaga_bidan extends CI_Controller
+class T_kes_sdm_tenaga_non_medis extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
         is_login();
-        $this->load->model('T_kes_sdm_tenaga_bidan_model');
+        $this->load->model('T_kes_sdm_tenaga_non_medis_model');
         $this->load->library('form_validation');
         $this->load->library('datatables');
     }
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_tenaga_bidan/t_kes_sdm_tenaga_bidan_list');
+        $this->template->load('template', 't_kes_sdm_tenaga_non_medis/t_kes_sdm_tenaga_non_medis_list');
     }
 
     public function json()
     {
         header('Content-Type: application/json');
-        echo $this->T_kes_sdm_tenaga_bidan_model->json();
+        echo $this->T_kes_sdm_tenaga_non_medis_model->json();
     }
 
     public function read($id)
     {
-        $row = $this->T_kes_sdm_tenaga_bidan_model->get_by_id($id);
+        $row = $this->T_kes_sdm_tenaga_non_medis_model->get_by_id($id);
         if ($row) {
             $data = array(
                 'id' => $row->id,
@@ -41,10 +41,10 @@ class T_kes_sdm_tenaga_bidan extends CI_Controller
                 'user' => $row->user,
                 'create_date' => $row->create_date,
             );
-            $this->template->load('template', 't_kes_sdm_tenaga_bidan/t_kes_sdm_tenaga_bidan_read', $data);
+            $this->template->load('template', 't_kes_sdm_tenaga_non_medis/t_kes_sdm_tenaga_non_medis_read', $data);
         } else {
             $this->session->set_flashdata('warning', 'Record Not Found');
-            redirect(site_url('t_kes_sdm_tenaga_bidan'));
+            redirect(site_url('t_kes_sdm_tenaga_non_medis'));
         }
     }
 
@@ -52,7 +52,7 @@ class T_kes_sdm_tenaga_bidan extends CI_Controller
     {
         $data = array(
             'button' => 'Kirim',
-            'action' => site_url('t_kes_sdm_tenaga_bidan/create_action'),
+            'action' => site_url('t_kes_sdm_tenaga_non_medis/create_action'),
             'id' => set_value('id'),
             'tgl_transaksi' => set_value('tgl_transaksi'),
             'pns' => set_value('pns'),
@@ -64,7 +64,7 @@ class T_kes_sdm_tenaga_bidan extends CI_Controller
             'user' => set_value('user'),
             'create_date' => set_value('create_date'),
         );
-        $this->template->load('template', 't_kes_sdm_tenaga_bidan/t_kes_sdm_tenaga_bidan_form', $data);
+        $this->template->load('template', 't_kes_sdm_tenaga_non_medis/t_kes_sdm_tenaga_non_medis_form', $data);
     }
 
     public function create_action()
@@ -79,22 +79,22 @@ class T_kes_sdm_tenaga_bidan extends CI_Controller
             'kontrak' => $this->input->post('kontrak', TRUE),
         );
 
-        $row = $this->T_kes_sdm_tenaga_bidan_model->get_by_param($tanggal);
+        $row = $this->T_kes_sdm_tenaga_non_medis_model->get_by_param($tanggal);
         if (($tanggal == $row->tgl_transaksi)) {
-            $this->T_kes_sdm_tenaga_bidan_model->update_kes_sdm_tenaga_bidan($data);
+            $this->T_kes_sdm_tenaga_non_medis_model->update_kes_sdm_tenaga_non_medis($data);
         } else {
-            $this->T_kes_sdm_tenaga_bidan_model->insert_kes_sdm_tenaga_bidan($data);
+            $this->T_kes_sdm_tenaga_non_medis_model->insert_kes_sdm_tenaga_non_medis($data);
         }
     }
 
     public function update($id)
     {
-        $row = $this->T_kes_sdm_tenaga_bidan_model->get_by_id($id);
+        $row = $this->T_kes_sdm_tenaga_non_medis_model->get_by_id($id);
 
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('t_kes_sdm_tenaga_bidan/update_action'),
+                'action' => site_url('t_kes_sdm_tenaga_non_medis/update_action'),
                 'id' => set_value('id', $row->id),
                 'tgl_transaksi' => set_value('tgl_transaksi', $row->tgl_transaksi),
                 'pns' => set_value('pns', $row->pns),
@@ -106,10 +106,10 @@ class T_kes_sdm_tenaga_bidan extends CI_Controller
                 'user' => set_value('user', $row->user),
                 'create_date' => set_value('create_date', $row->create_date),
             );
-            $this->template->load('template', 't_kes_sdm_tenaga_bidan/t_kes_sdm_tenaga_bidan_form', $data);
+            $this->template->load('template', 't_kes_sdm_tenaga_non_medis/t_kes_sdm_tenaga_non_medis_form', $data);
         } else {
             $this->session->set_flashdata('warning', 'Record Not Found');
-            redirect(site_url('t_kes_sdm_tenaga_bidan'));
+            redirect(site_url('t_kes_sdm_tenaga_non_medis'));
         }
     }
 
@@ -132,23 +132,23 @@ class T_kes_sdm_tenaga_bidan extends CI_Controller
             'create_date' => $this->input->post('create_date', TRUE),
         );
 
-        $this->T_kes_sdm_tenaga_bidan_model->update($this->input->post('id', TRUE), $data);
+        $this->T_kes_sdm_tenaga_non_medis_model->update($this->input->post('id', TRUE), $data);
         $this->session->set_flashdata('success', ' Update Record Success');
-        redirect(site_url('t_kes_sdm_tenaga_bidan'));
+        redirect(site_url('t_kes_sdm_tenaga_non_medis'));
         // }
     }
 
     public function delete($id)
     {
-        $row = $this->T_kes_sdm_tenaga_bidan_model->get_by_id($id);
+        $row = $this->T_kes_sdm_tenaga_non_medis_model->get_by_id($id);
 
         if ($row) {
-            $this->T_kes_sdm_tenaga_bidan_model->delete($id);
+            $this->T_kes_sdm_tenaga_non_medis_model->delete($id);
             $this->session->set_flashdata('success', ' Delete Record Success');
-            redirect(site_url('t_kes_sdm_tenaga_bidan'));
+            redirect(site_url('t_kes_sdm_tenaga_non_medis'));
         } else {
             $this->session->set_flashdata('warning', 'Record Not Found');
-            redirect(site_url('t_kes_sdm_tenaga_bidan'));
+            redirect(site_url('t_kes_sdm_tenaga_non_medis'));
         }
     }
 
@@ -157,4 +157,4 @@ class T_kes_sdm_tenaga_bidan extends CI_Controller
 
 }
 
-/* End of file T_kes_sdm_tenaga_bidan.php */
+/* End of file T_kes_sdm_tenaga_non_medis.php */

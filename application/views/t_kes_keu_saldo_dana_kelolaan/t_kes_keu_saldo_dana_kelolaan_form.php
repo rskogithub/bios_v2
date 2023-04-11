@@ -48,7 +48,7 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Saldo Akhir</td>
-                                    <td><input type="text" class="form-control" name="saldo_akhir" id="saldo_akhir" placeholder="Saldo Akhir" value="<?php echo $saldo_akhir; ?>" /></td>
+                                    <td><input type="number" class="form-control" name="saldo_akhir" id="saldo_akhir" placeholder="Saldo Akhir" value="<?php echo $saldo_akhir; ?>" /></td>
                                 </tr>
 
                                 <tr>
