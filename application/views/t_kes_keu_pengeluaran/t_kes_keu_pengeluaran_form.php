@@ -48,10 +48,10 @@
                         </form>
                         <div>
                             <p style="margin-bottom: 0px; color:red;">
-                                - Data yang dikirimkan merupakan posisi data pada saat tanggal berkenaan, tidak bersifat akumulatif.
+                                - Data transaksi penerimaan yang dikirimkan di-grouping per tanggal transaksi per akun. Data bersifat akumulatif sampai dengan posisi data pada tanggal transaksi berkenaan.
                             </p>
                             <p style="margin-bottom: 0px; color:red;">
-                                - Data dikirimkan per periode harian.
+                                - Data dikirimkan per periode harian. Data yang dikirimkan termasuk yang belum di SP3B/disahkan.
                             </p>
                         </div>
                     </div>
