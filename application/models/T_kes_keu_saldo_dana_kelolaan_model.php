@@ -115,7 +115,7 @@ class T_kes_keu_saldo_dana_kelolaan_model extends CI_Model
     // datatables
     function json()
     {
-        $this->datatables->select('a.id,a.tgl_transaksi,b.uraian as kdbank,a.no_rekening,format(a.saldo_akhir, 0,"id_ID"),a.message,user,a.create_date');
+        $this->datatables->select('a.id,a.tgl_transaksi,b.uraian as kdbank,a.no_rekening,format(a.saldo_akhir, 0,"id_ID") as saldo_akhir,a.message,user,a.create_date');
         $this->datatables->from('t_kes_keu_saldo_dana_kelolaan a');
         $this->datatables->join('m_bank b', 'a.kdbank = b.kode', 'LEFT');
         //add this line for join
