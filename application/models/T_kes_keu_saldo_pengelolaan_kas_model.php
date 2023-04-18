@@ -117,8 +117,9 @@ class T_kes_keu_saldo_pengelolaan_kas_model extends CI_Model
     // datatables
     function json()
     {
-        $this->datatables->select('id,tgl_transaksi,kdbank,no_bilyet,nilai_deposito,nilai_bunga,message,user,create_date');
-        $this->datatables->from('t_kes_keu_saldo_pengelolaan_kas');
+        $this->datatables->select('a.id,a.tgl_transaksi,b.uraian as kdbank,a.no_bilyet,format(a.nilai_deposito, 0,"id_ID") as nilai_deposito,a.nilai_bunga,a.message,a.user,a.create_date');
+        $this->datatables->from('t_kes_keu_saldo_pengelolaan_kas a');
+        $this->datatables->join('m_bank b', 'a.kdbank = b.kode', 'LEFT');
         //add this line for join
         //$this->datatables->join('table2', 't_kes_keu_saldo_pengelolaan_kas.field = table2.field');
         // $this->datatables->add_column('action', anchor(site_url('t_kes_keu_saldo_pengelolaan_kas/read/$1'), '<i class="fal fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-xs')) . "
