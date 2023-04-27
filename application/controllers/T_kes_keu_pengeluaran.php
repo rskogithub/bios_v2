@@ -16,7 +16,10 @@ class T_kes_keu_pengeluaran extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_keu_pengeluaran/t_kes_keu_pengeluaran_list');
+        $data = array(
+            'data' => $this->T_kes_keu_pengeluaran_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_keu_pengeluaran/t_kes_keu_pengeluaran_list', $data);
     }
 
     public function json()

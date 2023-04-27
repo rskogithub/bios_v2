@@ -27,7 +27,7 @@
                                         ?>
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td width='200'>Nama Bank</td>
                                     <td>
                                         <select type="text" name="kdbank" id="kdbank" class="form-control" required>
@@ -41,14 +41,14 @@
                                             <?php endforeach; ?>
                                         </select>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td width='200'>No Bilyet</td>
                                     <td><input type="text" class="form-control" name="no_bilyet" id="no_bilyet" placeholder="No Bilyet" value="<?php echo $no_bilyet; ?>" /></td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Nilai Deposito</td>
-                                    <td><input type="number" class="form-control" name="nilai_deposito" id="nilai_deposito" placeholder="Nilai Deposito" value="<?php echo $nilai_deposito; ?>" /></td>
+                                    <td><input type="text" class="form-control" name="nilai_deposito" id="nilai_deposito" placeholder="Nilai Deposito" value="<?php echo $nilai_deposito; ?>" /></td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Nilai Bunga</td>
@@ -83,3 +83,11 @@
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/select2/select2.bundle.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/kostum.js"></script>
+<script src="<?php echo base_url() ?>assets/smartadmin/js/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#nilai_deposito').mask('#.##0', {
+            reverse: true
+        });
+    })
+</script>

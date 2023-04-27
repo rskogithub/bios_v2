@@ -16,7 +16,10 @@ class T_kes_keu_saldo_dana_kelolaan extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_keu_saldo_dana_kelolaan/t_kes_keu_saldo_dana_kelolaan_list');
+        $data = array(
+            'data' => $this->T_kes_keu_saldo_dana_kelolaan_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_keu_saldo_dana_kelolaan/t_kes_keu_saldo_dana_kelolaan_list', $data);
     }
 
     public function json()
@@ -49,7 +52,7 @@ class T_kes_keu_saldo_dana_kelolaan extends CI_Controller
     public function create()
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Kirim',
             'action' => site_url('t_kes_keu_saldo_dana_kelolaan/create_action'),
             'id' => set_value('id'),
             'tgl_transaksi' => set_value('tgl_transaksi'),

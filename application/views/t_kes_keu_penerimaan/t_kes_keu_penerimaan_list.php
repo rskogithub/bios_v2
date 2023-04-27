@@ -45,7 +45,7 @@ if (isset($_GET['str'])) {
                                     <tr>
                                         <td width="2%"><?php echo $row['rn'] ?></td>
                                         <td><?php echo $row['tgl_transaksi'] ?></td>
-                                        <td width="30%">
+                                        <td>
                                             <?php
                                             foreach ($akuns as $akun) {
                                                 echo '' . $akun->uraian . '';

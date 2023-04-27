@@ -30,7 +30,7 @@
                                 <tr>
                                     <td width='200'>Nama Bank</td>
                                     <td>
-                                        <select type="text" name="kdbank" id="kdbank" class="form-control" required>
+                                        <select type="text" name="kdbank" id="kdbank" class="form-control select2" required>
                                             <option value="">Pilih Jenis Bank</option>
                                             <?php foreach ($get_bank as $row) : ?>
                                                 <?php $selected = ''; ?>
@@ -52,7 +52,7 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Saldo Akhir</td>
-                                    <td><input type="number" class="form-control" name="saldo_akhir" id="saldo_akhir" placeholder="Saldo Akhir" value="<?php echo $saldo_akhir; ?>" /></td>
+                                    <td><input type="text" class="form-control" name="saldo_akhir" id="saldo_akhir" placeholder="Saldo Akhir" value="<?php echo $saldo_akhir; ?>" /></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -83,3 +83,11 @@
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/select2/select2.bundle.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/kostum.js"></script>
+<script src="<?php echo base_url() ?>assets/smartadmin/js/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#saldo_akhir').mask('#.##0', {
+            reverse: true
+        });
+    })
+</script>

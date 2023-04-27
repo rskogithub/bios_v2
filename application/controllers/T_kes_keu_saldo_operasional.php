@@ -16,7 +16,10 @@ class T_kes_keu_saldo_operasional extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_keu_saldo_operasional/t_kes_keu_saldo_operasional_list');
+        $data = array(
+            'data' => $this->T_kes_keu_saldo_operasional_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_keu_saldo_operasional/t_kes_keu_saldo_operasional_list', $data);
     }
 
     public function json()

@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Jumlah</td>
-                                    <td><input type="number" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah" value="<?php echo $jumlah; ?>" required /></td>
+                                    <td><input type="text" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah" value="<?php echo $jumlah; ?>" required /></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -66,3 +66,11 @@
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/select2/select2.bundle.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/kostum.js"></script>
+<script src="<?php echo base_url() ?>assets/smartadmin/js/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#jumlah').mask('#.##0', {
+            reverse: true
+        });
+    })
+</script>
