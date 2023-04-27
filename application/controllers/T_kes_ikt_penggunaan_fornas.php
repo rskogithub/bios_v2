@@ -16,7 +16,11 @@ class T_kes_ikt_penggunaan_fornas extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_penggunaan_fornas/t_kes_ikt_penggunaan_fornas_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_penggunaan_fornas_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_ikt_penggunaan_fornas/t_kes_ikt_penggunaan_fornas_list', $data);
     }
 
     public function json()

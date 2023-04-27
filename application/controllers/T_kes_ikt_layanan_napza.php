@@ -16,7 +16,10 @@ class T_kes_ikt_layanan_napza extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_layanan_napza/t_kes_ikt_layanan_napza_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_layanan_napza_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_layanan_napza/t_kes_ikt_layanan_napza_list', $data);
     }
 
     public function json()

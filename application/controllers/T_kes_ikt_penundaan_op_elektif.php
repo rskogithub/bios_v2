@@ -16,7 +16,10 @@ class T_kes_ikt_penundaan_op_elektif extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_penundaan_op_elektif/t_kes_ikt_penundaan_op_elektif_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_penundaan_op_elektif_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_penundaan_op_elektif/t_kes_ikt_penundaan_op_elektif_list', $data);
     }
 
     public function json()

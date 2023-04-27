@@ -16,7 +16,11 @@ class T_kes_ikt_tanggap_komplain extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_tanggap_komplain/t_kes_ikt_tanggap_komplain_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_resiko_jatuh_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_ikt_tanggap_komplain/t_kes_ikt_tanggap_komplain_list', $data);
     }
 
     public function json()

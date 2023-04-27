@@ -16,7 +16,11 @@ class T_kes_ikt_kepatuhan_prokes extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_kepatuhan_prokes/t_kes_ikt_kepatuhan_prokes_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_kepatuhan_prokes_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_ikt_kepatuhan_prokes/t_kes_ikt_kepatuhan_prokes_list', $data);
     }
 
     public function json()

@@ -109,6 +109,24 @@ class T_kes_ikt_visite_pasien_pertama_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
+
+    // get all
+    function get_all()
+    {
+        $data = array(
+            'tgl_transaksi' => '',
+        );
+        $response = $this->_client->request('POST', 'https://training-bios2.kemenkeu.go.id/api/get/data/kesehatan/ikt/visite_pertama', [
+            // 'debug' => true,
+            'form_params' => $data
+        ]);
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        $hasil = $result['data']['datas'];
+        return $hasil;
+    }
+
+
     // datatables
     function json()
     {
@@ -122,12 +140,6 @@ class T_kes_ikt_visite_pasien_pertama_model extends CI_Model
         return $this->datatables->generate();
     }
 
-    // get all
-    function get_all()
-    {
-        $this->db->order_by($this->id, $this->order);
-        return $this->db->get($this->table)->result();
-    }
 
     // get data by id
     function get_by_id($id)

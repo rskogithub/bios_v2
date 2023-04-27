@@ -102,6 +102,29 @@ class T_kes_ikt_kepatuhan_clinical_pathway_model extends CI_Model
         // return $result;
     }
 
+    function get_by_param($tgl_transaksi)
+    {
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
+        $this->db->group_by('tgl_transaksi');
+        return $this->db->get($this->table)->row();
+    }
+
+    // get all
+    function get_all()
+    {
+        $data = array(
+            'tgl_transaksi' => '',
+        );
+        $response = $this->_client->request('POST', 'https://training-bios2.kemenkeu.go.id/api/get/data/kesehatan/ikt/kepatuhan_clinical_pathway', [
+            // 'debug' => true,
+            'form_params' => $data
+        ]);
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        $hasil = $result['data']['datas'];
+        return $hasil;
+    }
+
     // datatables
     function json()
     {
@@ -115,12 +138,6 @@ class T_kes_ikt_kepatuhan_clinical_pathway_model extends CI_Model
         return $this->datatables->generate();
     }
 
-    // get all
-    function get_all()
-    {
-        $this->db->order_by($this->id, $this->order);
-        return $this->db->get($this->table)->result();
-    }
 
     // get data by id
     function get_by_id($id)
@@ -174,13 +191,6 @@ class T_kes_ikt_kepatuhan_clinical_pathway_model extends CI_Model
     {
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
-    }
-
-    function get_by_param($tgl_transaksi)
-    {
-        $this->db->where('tgl_transaksi', $tgl_transaksi);
-        $this->db->group_by('tgl_transaksi');
-        return $this->db->get($this->table)->row();
     }
 }
 

@@ -16,7 +16,11 @@ class T_kes_ikt_tanggap_op_seksio extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_tanggap_op_seksio/t_kes_ikt_tanggap_op_seksio_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_tanggap_op_seksio_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_ikt_tanggap_op_seksio/t_kes_ikt_tanggap_op_seksio_list', $data);
     }
 
     public function json()

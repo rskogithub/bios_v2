@@ -16,7 +16,10 @@ class T_kes_ikt_pembelian_alkes_dn extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_pembelian_alkes_dn/t_kes_ikt_pembelian_alkes_dn_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_pembelian_alkes_dn_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_pembelian_alkes_dn/t_kes_ikt_pembelian_alkes_dn_list', $data);
     }
 
     public function json()

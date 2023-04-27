@@ -16,7 +16,10 @@ class T_kes_ikt_visite_pasien_2 extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_visite_pasien_2/t_kes_ikt_visite_pasien_2_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_visite_pasien_2_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_visite_pasien_2/t_kes_ikt_visite_pasien_2_list', $data);
     }
 
     public function json()

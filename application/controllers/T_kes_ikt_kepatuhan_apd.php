@@ -16,7 +16,10 @@ class T_kes_ikt_kepatuhan_apd extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_kepatuhan_apd/t_kes_ikt_kepatuhan_apd_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_kepatuhan_apd_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_kepatuhan_apd/t_kes_ikt_kepatuhan_apd_list', $data);
     }
 
     public function json()

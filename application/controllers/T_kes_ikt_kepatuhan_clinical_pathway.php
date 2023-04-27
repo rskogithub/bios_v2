@@ -16,7 +16,10 @@ class T_kes_ikt_kepatuhan_clinical_pathway extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_kepatuhan_clinical_pathway/t_kes_ikt_kepatuhan_clinical_pathway_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_kepatuhan_clinical_pathway_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_kepatuhan_clinical_pathway/t_kes_ikt_kepatuhan_clinical_pathway_list', $data);
     }
 
     public function json()

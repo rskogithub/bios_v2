@@ -16,7 +16,10 @@ class T_kes_ikt_hasil_kritis_lab extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_hasil_kritis_lab/t_kes_ikt_hasil_kritis_lab_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_hasil_kritis_lab_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_hasil_kritis_lab/t_kes_ikt_hasil_kritis_lab_list', $data);
     }
 
     public function json()

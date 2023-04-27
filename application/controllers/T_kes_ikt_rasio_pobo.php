@@ -16,7 +16,11 @@ class T_kes_ikt_rasio_pobo extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_rasio_pobo/t_kes_ikt_rasio_pobo_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_rasio_pobo_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_ikt_rasio_pobo/t_kes_ikt_rasio_pobo_list', $data);
     }
 
     public function json()

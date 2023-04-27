@@ -16,7 +16,10 @@ class T_kes_ikt_kepatuhan_visite_dokter extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_kepatuhan_visite_dokter/t_kes_ikt_kepatuhan_visite_dokter_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_kepatuhan_visite_dokter_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_kepatuhan_visite_dokter/t_kes_ikt_kepatuhan_visite_dokter_list', $data);
     }
 
     public function json()

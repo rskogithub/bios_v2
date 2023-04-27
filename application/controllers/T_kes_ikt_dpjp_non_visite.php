@@ -16,7 +16,10 @@ class T_kes_ikt_dpjp_non_visite extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_dpjp_non_visite/t_kes_ikt_dpjp_non_visite_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_dpjp_non_visite_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_dpjp_non_visite/t_kes_ikt_dpjp_non_visite_list', $data);
     }
 
     public function json()

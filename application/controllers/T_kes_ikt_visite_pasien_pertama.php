@@ -16,7 +16,10 @@ class T_kes_ikt_visite_pasien_pertama extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_ikt_visite_pasien_pertama/t_kes_ikt_visite_pasien_pertama_list');
+        $data = array(
+            'data' => $this->T_kes_ikt_visite_pasien_pertama_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_ikt_visite_pasien_pertama/t_kes_ikt_visite_pasien_pertama_list', $data);
     }
 
     public function json()
