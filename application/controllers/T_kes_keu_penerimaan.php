@@ -16,7 +16,10 @@ class T_kes_keu_penerimaan extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_keu_penerimaan/t_kes_keu_penerimaan_list');
+        $data = array(
+            'data' => $this->T_kes_keu_penerimaan_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_keu_penerimaan/t_kes_keu_penerimaan_list', $data);
     }
 
     public function json()
