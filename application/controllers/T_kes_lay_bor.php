@@ -16,7 +16,10 @@ class T_kes_lay_bor extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_bor/t_kes_lay_bor_list');
+        $data = array(
+            'data' => $this->T_kes_lay_bor_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_bor/t_kes_lay_bor_list', $data);
     }
 
     public function json()

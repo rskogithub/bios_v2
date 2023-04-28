@@ -16,7 +16,10 @@ class T_kes_lay_alos extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_alos/t_kes_lay_alos_list');
+        $data = array(
+            'data' => $this->T_kes_lay_alos_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_alos/t_kes_lay_alos_list', $data);
     }
 
     public function json()

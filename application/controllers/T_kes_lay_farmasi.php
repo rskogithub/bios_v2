@@ -16,7 +16,10 @@ class T_kes_lay_farmasi extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_farmasi/t_kes_lay_farmasi_list');
+        $data = array(
+            'data' => $this->T_kes_lay_farmasi_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_farmasi/t_kes_lay_farmasi_list', $data);
     }
 
     public function json()

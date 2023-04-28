@@ -16,7 +16,10 @@ class T_kes_lay_pasien_igd extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_pasien_igd/t_kes_lay_pasien_igd_list');
+        $data = array(
+            'data' => $this->T_kes_lay_pasien_igd_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_pasien_igd/t_kes_lay_pasien_igd_list', $data);
     }
 
     public function json()

@@ -16,7 +16,11 @@ class T_kes_lay_tindakan_operasi extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_tindakan_operasi/t_kes_lay_tindakan_operasi_list');
+        $data = array(
+            'data' => $this->T_kes_lay_tindakan_operasi_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_lay_tindakan_operasi/t_kes_lay_tindakan_operasi_list', $data);
     }
 
     public function json()

@@ -16,7 +16,10 @@ class T_kes_lay_indeks_kepuasan extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_indeks_kepuasan/t_kes_lay_indeks_kepuasan_list');
+        $data = array(
+            'data' => $this->T_kes_lay_indeks_kepuasan_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_indeks_kepuasan/t_kes_lay_indeks_kepuasan_list', $data);
     }
 
     public function json()

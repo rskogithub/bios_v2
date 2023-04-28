@@ -16,7 +16,10 @@ class T_kes_lay_lab_parameter extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_lab_parameter/t_kes_lay_lab_parameter_list');
+        $data = array(
+            'data' => $this->T_kes_lay_lab_parameter_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_lab_parameter/t_kes_lay_lab_parameter_list', $data);
     }
 
     public function json()
@@ -66,6 +69,7 @@ class T_kes_lay_lab_parameter extends CI_Controller
         $tanggal = date('Y-m-d', strtotime($this->input->post('tgl_transaksi', TRUE)));
         $data = array(
             'tgl_transaksi' => $tanggal,
+            'nama_layanan' => $this->input->post('nama_layanan', TRUE),
             'jumlah' => $this->input->post('jumlah', TRUE),
         );
         $row = $this->T_kes_lay_lab_parameter_model->get_by_param($tanggal);

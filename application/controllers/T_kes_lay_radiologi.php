@@ -16,7 +16,10 @@ class T_kes_lay_radiologi extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_radiologi/t_kes_lay_radiologi_list');
+        $data = array(
+            'data' => $this->T_kes_lay_radiologi_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_radiologi/t_kes_lay_radiologi_list', $data);
     }
 
     public function json()

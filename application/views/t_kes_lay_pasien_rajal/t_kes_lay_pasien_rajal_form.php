@@ -29,7 +29,10 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Nama Poli</td>
-                                    <td><input type="text" class="form-control" name="nama_poli" id="nama_poli" placeholder="Nama Poli" value="<?php echo $nama_poli; ?>" /></td>
+                                    <!-- <td><input type="text" class="form-control" name="nama_poli" id="nama_poli" placeholder="Nama Poli" value="<?php echo $nama_poli; ?>" /></td> -->
+                                    <td>
+                                        <?php echo select2_dinamis_custom('nama_poli', 'm_poli_sub', 'nama_poli_sub', 'nama_poli_sub', '', '', '') ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Jumlah</td>

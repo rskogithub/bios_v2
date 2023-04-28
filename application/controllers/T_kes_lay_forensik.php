@@ -16,7 +16,11 @@ class T_kes_lay_forensik extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_forensik/t_kes_lay_forensik_list');
+        $data = array(
+            'data' => $this->T_kes_lay_forensik_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_lay_forensik/t_kes_lay_forensik_list', $data);
     }
 
     public function json()

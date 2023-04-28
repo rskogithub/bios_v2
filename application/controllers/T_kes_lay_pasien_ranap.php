@@ -16,7 +16,10 @@ class T_kes_lay_pasien_ranap extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_pasien_ranap/t_kes_lay_pasien_ranap_list');
+        $data = array(
+            'data' => $this->T_kes_lay_pasien_ranap_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_pasien_ranap/t_kes_lay_pasien_ranap_list', $data);
     }
 
     public function json()

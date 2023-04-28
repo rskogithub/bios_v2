@@ -16,7 +16,10 @@ class T_kes_lay_pasien_rajal extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_lay_pasien_rajal/t_kes_lay_pasien_rajal_list');
+        $data = array(
+            'data' => $this->T_kes_lay_pasien_rajal_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_lay_pasien_rajal/t_kes_lay_pasien_rajal_list', $data);
     }
 
     public function json()
