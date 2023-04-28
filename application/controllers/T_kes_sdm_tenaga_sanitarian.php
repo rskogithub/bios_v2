@@ -16,7 +16,10 @@ class T_kes_sdm_tenaga_sanitarian extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_tenaga_sanitarian/t_kes_sdm_tenaga_sanitarian_list');
+        $data = array(
+            'data' => $this->T_kes_sdm_tenaga_sanitarian_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_sdm_tenaga_sanitarian/t_kes_sdm_tenaga_sanitarian_list', $data);
     }
 
     public function json()
@@ -51,7 +54,7 @@ class T_kes_sdm_tenaga_sanitarian extends CI_Controller
     public function create()
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Kirim',
             'action' => site_url('t_kes_sdm_tenaga_sanitarian/create_action'),
             'id' => set_value('id'),
             'tgl_transaksi' => set_value('tgl_transaksi'),

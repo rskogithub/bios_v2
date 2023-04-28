@@ -43,11 +43,11 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Pns</td>
-                                    <td><input type="number" class="form-control" name="pns" id="pns" placeholder="Pns" value="<?php echo $pns; ?>" /></td>
+                                    <td><input type="number" class="form-control" name="pns" id="pns" placeholder="Pns" value="<?php echo $pns; ?>" required /></td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Pppk</td>
-                                    <td><input type="number" class="form-control" name="pppk" id="pppk" placeholder="Pppk" value="<?php echo $pppk; ?>" /></td>
+                                    <td><input type="number" class="form-control" name="pppk" id="pppk" placeholder="Pppk" value="<?php echo $pppk; ?>" required /></td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Anggota</td>
@@ -55,11 +55,11 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Non Pns Tetap</td>
-                                    <td><input type="number" class="form-control" name="non_pns_tetap" id="non_pns_tetap" placeholder="Non Pns Tetap" value="<?php echo $non_pns_tetap; ?>" /></td>
+                                    <td><input type="number" class="form-control" name="non_pns_tetap" id="non_pns_tetap" placeholder="Non Pns Tetap" value="<?php echo $non_pns_tetap; ?>" required /></td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Kontrak</td>
-                                    <td><input type="number" class="form-control" name="kontrak" id="kontrak" placeholder="Kontrak" value="<?php echo $kontrak; ?>" /></td>
+                                    <td><input type="number" class="form-control" name="kontrak" id="kontrak" placeholder="Kontrak" value="<?php echo $kontrak; ?>" required /></td>
                                 </tr>
                                 <tr>
                                     <td></td>

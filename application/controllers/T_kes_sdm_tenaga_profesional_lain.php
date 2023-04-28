@@ -16,7 +16,10 @@ class T_kes_sdm_tenaga_profesional_lain extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_tenaga_profesional_lain/t_kes_sdm_tenaga_profesional_lain_list');
+        $data = array(
+            'data' => $this->T_kes_sdm_tenaga_profesional_lain_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_sdm_tenaga_profesional_lain/t_kes_sdm_tenaga_profesional_lain_list', $data);
     }
 
     public function json()

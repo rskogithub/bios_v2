@@ -16,7 +16,11 @@ class T_kes_sdm_pharmacist extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_pharmacist/t_kes_sdm_pharmacist_list');
+        $data = array(
+            'data' => $this->T_kes_sdm_pharmacist_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_sdm_pharmacist/t_kes_sdm_pharmacist_list', $data);
     }
 
     public function json()

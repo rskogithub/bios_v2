@@ -16,7 +16,10 @@ class T_kes_sdm_tenaga_non_medis extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_tenaga_non_medis/t_kes_sdm_tenaga_non_medis_list');
+        $data = array(
+            'data' => $this->T_kes_sdm_tenaga_non_medis_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_sdm_tenaga_non_medis/t_kes_sdm_tenaga_non_medis_list', $data);
     }
 
     public function json()

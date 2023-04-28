@@ -16,7 +16,10 @@ class T_kes_sdm_pranata_laboratorium extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_pranata_laboratorium/t_kes_sdm_pranata_laboratorium_list');
+        $data = array(
+            'data' => $this->T_kes_sdm_pranata_laboratorium_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_sdm_pranata_laboratorium/t_kes_sdm_pranata_laboratorium_list', $data);
     }
 
     public function json()

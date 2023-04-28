@@ -16,7 +16,11 @@ class T_kes_sdm_fisioterapis extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_fisioterapis/t_kes_sdm_fisioterapis_list');
+        $data = array(
+            'data' => $this->T_kes_sdm_fisioterapis_model->get_all(),
+        );
+
+        $this->template->load('template', 't_kes_sdm_fisioterapis/t_kes_sdm_fisioterapis_list', $data);
     }
 
     public function json()

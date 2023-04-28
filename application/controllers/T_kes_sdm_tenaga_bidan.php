@@ -16,7 +16,10 @@ class T_kes_sdm_tenaga_bidan extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_tenaga_bidan/t_kes_sdm_tenaga_bidan_list');
+        $data = array(
+            'data' => $this->T_kes_sdm_tenaga_bidan_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_sdm_tenaga_bidan/t_kes_sdm_tenaga_bidan_list', $data);
     }
 
     public function json()

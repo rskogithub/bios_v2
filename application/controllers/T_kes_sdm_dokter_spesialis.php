@@ -16,7 +16,10 @@ class T_kes_sdm_dokter_spesialis extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 't_kes_sdm_dokter_spesialis/t_kes_sdm_dokter_spesialis_list');
+        $data = array(
+            'data' => $this->T_kes_sdm_dokter_spesialis_model->get_all(),
+        );
+        $this->template->load('template', 't_kes_sdm_dokter_spesialis/t_kes_sdm_dokter_spesialis_list', $data);
     }
 
     public function json()

@@ -110,6 +110,28 @@ class T_kes_sdm_fisioterapis_model extends CI_Model
         // return $result;
     }
 
+    function get_by_param($tgl_transaksi)
+    {
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
+        $this->db->group_by('tgl_transaksi');
+        return $this->db->get($this->table)->row();
+    }
+
+    // get all
+    function get_all()
+    {
+        $data = array(
+            'tgl_transaksi' => '',
+        );
+        $response = $this->_client->request('POST', 'https://training-bios2.kemenkeu.go.id/api/get/data/kesehatan/sdm/fisioterapis', [
+            // 'debug' => true,
+            'form_params' => $data
+        ]);
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        $hasil = $result['data']['datas'];
+        return $hasil;
+    }
 
     // datatables
     function json()
@@ -122,13 +144,6 @@ class T_kes_sdm_fisioterapis_model extends CI_Model
         //     " . anchor(site_url('t_kes_sdm_fisioterapis/update/$1'), '<i class="fal fa-pencil" aria-hidden="true"></i>', array('class' => 'btn btn-warning btn-xs')) . "
         //         " . anchor(site_url('t_kes_sdm_fisioterapis/delete/$1'), '<i class="fal fa-trash" aria-hidden="true"></i>', 'class="btn btn-danger btn-xs" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id');
         return $this->datatables->generate();
-    }
-
-    // get all
-    function get_all()
-    {
-        $this->db->order_by($this->id, $this->order);
-        return $this->db->get($this->table)->result();
     }
 
     // get data by id
@@ -191,13 +206,6 @@ class T_kes_sdm_fisioterapis_model extends CI_Model
     {
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
-    }
-
-    function get_by_param($tgl_transaksi)
-    {
-        $this->db->where('tgl_transaksi', $tgl_transaksi);
-        $this->db->group_by('tgl_transaksi');
-        return $this->db->get($this->table)->row();
     }
 }
 
