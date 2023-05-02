@@ -151,9 +151,10 @@ class T_kes_keu_penerimaan_model extends CI_Model
     // }
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi, $kd_akun)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
+        $this->db->where('kd_akun', $kd_akun);
         return $this->db->get($this->table)->row();
     }
 

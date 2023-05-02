@@ -30,7 +30,24 @@
                                 <tr>
                                     <td width='200'>Nama Akun</td>
                                     <td>
-                                        <?php echo select2_dinamis_custom('kd_akun', 'm_akun', 'kode', 'uraian', '', 'LEFT(kode, "1") = "4"', '') ?>
+                                        <?php if (empty($kd_akun)) {
+                                            echo select2_dinamis_custom('kd_akun', 'm_akun', 'kode', 'uraian', '', 'LEFT(kode, "1") = "4"', '');
+                                        } else {
+                                        ?>
+                                            <select name="kd_akun" id="kd_akun" class="form-control select2">
+                                                <?php foreach ($get_akun as $row) : ?>
+                                                    <?php $selected = ''; ?>
+                                                    <?php $disabled = 'disabled'; ?>
+                                                    <?php if ($row['kode'] == $kd_akun) : ?>
+                                                        <?php $selected = 'selected'; ?>
+                                                        <?php $disabled = ''; ?>
+                                                    <?php endif; ?>
+                                                    <option value="<?php echo $row['kode']; ?>" <?php echo $selected; ?><?php echo $disabled; ?>><?php echo $row['uraian']; ?> </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        <?php
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                                 <tr>

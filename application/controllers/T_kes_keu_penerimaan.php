@@ -78,9 +78,9 @@ class T_kes_keu_penerimaan extends CI_Controller
         }
     }
 
-    public function update($id)
+    public function update($tgl_transaksi, $kd_akun)
     {
-        $row = $this->T_kes_keu_penerimaan_model->get_by_id($id);
+        $row = $this->T_kes_keu_penerimaan_model->get_by_id($tgl_transaksi, $kd_akun);
 
         if ($row) {
             $data = array(
@@ -92,32 +92,32 @@ class T_kes_keu_penerimaan extends CI_Controller
                 'jumlah' => set_value('jumlah', $row->jumlah),
                 'user' => set_value('user', $row->user),
                 'create_date' => set_value('create_date', $row->create_date),
+                'get_akun' => $this->T_kes_keu_penerimaan_model->get_akun(),
             );
             $this->template->load('template', 't_kes_keu_penerimaan/t_kes_keu_penerimaan_form', $data);
         } else {
-            $this->session->set_flashdata('warning', 'Record Not Found');
+            $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    </button><strong> Data Tidak Tersedia</strong></div>');
             redirect(site_url('t_kes_keu_penerimaan'));
         }
     }
 
     public function update_action()
     {
-        // $this->_rules();
-
-        // if ($this->form_validation->run() == FALSE) {
-        //     $this->update($this->input->post('id', TRUE));
-        // } else {
+        $tanggal = date('Y-m-d', strtotime($this->input->post('tgl_transaksi', TRUE)));
         $data = array(
-            'tgl_transaksi' => $this->input->post('tgl_transaksi', TRUE),
+            'tgl_transaksi' => $tanggal,
             'kd_akun' => $this->input->post('kd_akun', TRUE),
             'jumlah' => $this->input->post('jumlah', TRUE),
-            'user' => $this->input->post('user', TRUE),
-            'create_date' => $this->input->post('create_date', TRUE),
         );
-
-        $this->T_kes_keu_penerimaan_model->update($this->input->post('id', TRUE), $data);
-        $this->session->set_flashdata('success', ' Update Record Success');
-        redirect(site_url('t_kes_keu_penerimaan'));
+        $this->T_kes_keu_penerimaan_model->update_kes_keu_penerimaan($data);
+        // $row = $this->T_kes_keu_penerimaan_model->get_by_param($tanggal, $this->input->post('kd_akun'));
+        // if (($tanggal == $row->tgl_transaksi) && ($this->input->post('kd_akun') == $row->kd_akun)) {
+        //     $this->T_kes_keu_penerimaan_model->update_kes_keu_penerimaan($data);
+        // } else {
+        //     $this->T_kes_keu_penerimaan_model->insert_kes_keu_penerimaan($data);
         // }
     }
 
