@@ -44,7 +44,15 @@
                                 </tr> -->
                                 <tr>
                                     <td width='200'>No Bilyet</td>
-                                    <td><input type="text" class="form-control" name="no_bilyet" id="no_bilyet" placeholder="No Bilyet" value="<?php echo $no_bilyet; ?>" /></td>
+                                    <td>
+                                        <?php if (empty($no_bilyet)) { ?>
+                                            <input type="text" class="form-control" name="no_bilyet" id="no_bilyet" placeholder="No Bilyet" value="<?php echo $no_bilyet; ?>" required />
+                                        <?php } else { ?>
+                                            <input type="text" class="form-control" name="no_bilyet" id="no_bilyet" placeholder="No Bilyet" value="<?php echo $no_bilyet; ?>" readonly />
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Nilai Deposito</td>
@@ -84,10 +92,10 @@
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/kostum.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/jquery.mask.min.js"></script>
-<script>
+<!-- <script>
     $(document).ready(function() {
         $('#nilai_deposito').mask('#.##0', {
             reverse: true
         });
     })
-</script>
+</script> -->

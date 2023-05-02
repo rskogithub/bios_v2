@@ -30,25 +30,49 @@
                                 <tr>
                                     <td width='200'>Nama Bank</td>
                                     <td>
-                                        <select type="text" name="kdbank" id="kdbank" class="form-control select2" required>
-                                            <option value="">Pilih Jenis Bank</option>
-                                            <?php foreach ($get_bank as $row) : ?>
-                                                <?php $selected = ''; ?>
-                                                <?php if ($row['kode'] == $kd_bank) : ?>
-                                                    <?php $selected = 'selected'; ?>
-                                                <?php endif; ?>
-                                                <option value="<?php echo $row['kode']; ?>" <?php echo $selected; ?>><?php echo $row['uraian']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <?php if (empty($kdbank)) {
+                                            echo select2_dinamis_custom('kdbank', 'm_bank', 'kode', 'uraian', '', 'LEFT(kode, "1") = "4"', '');
+                                        } else {
+                                        ?>
+                                            <select name="kdbank" id="kd_akun" class="form-control select2">
+                                                <?php foreach ($get_bank as $row) : ?>
+                                                    <?php $selected = ''; ?>
+                                                    <?php $disabled = 'disabled'; ?>
+                                                    <?php if ($row['kode'] == $kdbank) : ?>
+                                                        <?php $selected = 'selected'; ?>
+                                                        <?php $disabled = ''; ?>
+                                                    <?php endif; ?>
+                                                    <option value="<?php echo $row['kode']; ?>" <?php echo $selected; ?><?php echo $disabled; ?>><?php echo $row['uraian']; ?> </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        <?php
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td width='200'>No Rekening</td>
-                                    <td><input type="number" class="form-control" name="no_rekening" id="no_rekening" placeholder="No Rekening" value="<?php echo $no_rekening; ?>" /></td>
+                                    <td>
+                                        <?php if (empty($tgl_transaksi)) { ?>
+                                            <input type="text" class="form-control" name="no_rekening" id="no_rekening" placeholder="No Rekening" value="<?php echo $no_rekening; ?>" required />
+                                        <?php } else { ?>
+                                            <input type="text" class="form-control" name="no_rekening" id="no_rekening" placeholder="No Rekening" value="<?php echo $no_rekening; ?>" readonly />
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Unit</td>
-                                    <td><input type="text" class="form-control" name="unit" id="unit" placeholder="Contoh : nama fakultas, jika tidak ada bisa dikosongkan" value="<?php echo $unit; ?>" /></td>
+                                    <td>
+                                        <?php if (empty($unit)) { ?>
+                                            <input type="text" class="form-control" name="unit" id="unit" placeholder="Contoh : nama fakultas, jika tidak ada bisa dikosongkan" value="<?php echo $unit; ?>" required />
+                                        <?php } else { ?>
+                                            <input type="text" class="form-control" name="unit" id="unit" placeholder="Contoh : nama fakultas, jika tidak ada bisa dikosongkan" value="<?php echo $unit; ?>" readonly />
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Saldo Akhir</td>
@@ -84,10 +108,10 @@
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/kostum.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/jquery.mask.min.js"></script>
-<script>
+<!-- <script>
     $(document).ready(function() {
         $('#saldo_akhir').mask('#.##0', {
             reverse: true
         });
     })
-</script>
+</script> -->

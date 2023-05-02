@@ -33,6 +33,7 @@ if (isset($_GET['str'])) {
                                     <!-- <th>Kode Satker</th> -->
                                     <th>Nama Satker</th>
                                     <th>Create Date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
@@ -55,6 +56,11 @@ if (isset($_GET['str'])) {
                                         <!-- <td><?php echo $row['kdsatker'] ?></td> -->
                                         <td><?php echo $row['nmsatker'] ?></td>
                                         <td><?php echo $row['updated_at'] ?></td>
+                                        <td style="text-align:center">
+                                            <?php
+                                            echo anchor(site_url('t_kes_keu_pengeluaran/update/' . $row['tgl_transaksi'] . '/' . $row['kd_akun']), '<i class="fal fa-pencil" aria-hidden="true"></i>', 'class="btn btn-warning btn-xs waves-effect waves-themed"');
+                                            ?>
+                                        </td>
                                     </tr>
                                 <?php
                                     }

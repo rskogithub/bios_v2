@@ -150,17 +150,11 @@ class T_kes_keu_pengeluaran_model extends CI_Model
         return $this->datatables->generate();
     }
 
-    // get all
-    // function get_all()
-    // {
-    //     $this->db->order_by($this->id, $this->order);
-    //     return $this->db->get($this->table)->result();
-    // }
-
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi, $kd_akun)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
+        $this->db->where('kd_akun', $kd_akun);
         return $this->db->get($this->table)->row();
     }
 

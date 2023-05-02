@@ -87,9 +87,9 @@ class T_kes_keu_saldo_operasional extends CI_Controller
         }
     }
 
-    public function update($id)
+    public function update($tgl_transaksi, $kdbank, $no_rekening)
     {
-        $row = $this->T_kes_keu_saldo_operasional_model->get_by_id($id);
+        $row = $this->T_kes_keu_saldo_operasional_model->get_by_id($tgl_transaksi, $kdbank, $no_rekening);
 
         if ($row) {
             $data = array(
@@ -104,10 +104,14 @@ class T_kes_keu_saldo_operasional extends CI_Controller
                 'message' => set_value('message', $row->message),
                 'user' => set_value('user', $row->user),
                 'create_date' => set_value('create_date', $row->create_date),
+                'get_bank' => $this->T_kes_keu_saldo_operasional_model->get_bank(),
             );
             $this->template->load('template', 't_kes_keu_saldo_operasional/t_kes_keu_saldo_operasional_form', $data);
         } else {
-            $this->session->set_flashdata('warning', 'Record Not Found');
+            $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    </button><strong> Data Tidak Tersedia</strong></div>');
             redirect(site_url('t_kes_keu_saldo_operasional'));
         }
     }
@@ -119,20 +123,15 @@ class T_kes_keu_saldo_operasional extends CI_Controller
         // if ($this->form_validation->run() == FALSE) {
         //     $this->update($this->input->post('id', TRUE));
         // } else {
+        $tanggal = date('Y-m-d', strtotime($this->input->post('tgl_transaksi', TRUE)));
         $data = array(
-            'tgl_transaksi' => $this->input->post('tgl_transaksi', TRUE),
+            'tgl_transaksi' => $tanggal,
             'kdbank' => $this->input->post('kdbank', TRUE),
             'no_rekening' => $this->input->post('no_rekening', TRUE),
             'unit' => $this->input->post('unit', TRUE),
             'saldo_akhir' => $this->input->post('saldo_akhir', TRUE),
-            'message' => $this->input->post('message', TRUE),
-            'user' => $this->input->post('user', TRUE),
-            'create_date' => $this->input->post('create_date', TRUE),
         );
-
-        $this->T_kes_keu_saldo_operasional_model->update($this->input->post('id', TRUE), $data);
-        $this->session->set_flashdata('success', ' Update Record Success');
-        redirect(site_url('t_kes_keu_saldo_operasional'));
+        $this->T_kes_keu_saldo_operasional_model->update_kes_keu_saldo_operasional($data);
         // }
     }
 

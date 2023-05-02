@@ -52,7 +52,6 @@ class T_kes_keu_saldo_pengelolaan_kas_model extends CI_Model
         $result = json_decode($response->getBody()->getContents(), true);
         $return_data = array(
             'tgl_transaksi' => $data['tgl_transaksi'],
-            'kdbank' =>  $data['kdbank'],
             'no_bilyet' => $data['no_bilyet'],
             'nilai_deposito' => $data['nilai_deposito'],
             'nilai_bunga' => $data['nilai_bunga'],
@@ -86,7 +85,6 @@ class T_kes_keu_saldo_pengelolaan_kas_model extends CI_Model
         $result = json_decode($response->getBody()->getContents(), true);
         $return_data = array(
             'tgl_transaksi' => $data['tgl_transaksi'],
-            'kdbank' =>  $data['kdbank'],
             'no_bilyet' => $data['no_bilyet'],
             'nilai_deposito' => $data['nilai_deposito'],
             'nilai_bunga' => $data['nilai_bunga'],
@@ -97,8 +95,7 @@ class T_kes_keu_saldo_pengelolaan_kas_model extends CI_Model
         // print_r($result);
         if ($result['status'] == 'MSG20003') {
             $this->db->where('tgl_transaksi', $data['tgl_transaksi']);
-            $this->db->where('kdbank', $data['kdbank']);
-            $this->db->where('no_bilyet', $data['no_bilyet']);
+            $this->db->where('no_bilyet', 'd1');
             $this->db->update($this->table, $return_data);
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -116,10 +113,9 @@ class T_kes_keu_saldo_pengelolaan_kas_model extends CI_Model
     }
 
 
-    function get_by_param($tgl_transaksi, $kdbank, $no_bilyet)
+    function get_by_param($tgl_transaksi, $no_bilyet)
     {
         $this->db->where('tgl_transaksi', $tgl_transaksi);
-        $this->db->where('kdbank', $kdbank);
         $this->db->where('no_bilyet', $no_bilyet);
         $this->db->group_by('tgl_transaksi');
         return $this->db->get($this->table)->row();
@@ -156,9 +152,10 @@ class T_kes_keu_saldo_pengelolaan_kas_model extends CI_Model
 
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi, $no_bilyet)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
+        $this->db->where('no_bilyet', $no_bilyet);
         return $this->db->get($this->table)->row();
     }
 
