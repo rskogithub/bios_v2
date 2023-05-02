@@ -83,10 +83,10 @@
 <script src="<?php echo base_url() ?>assets/smartadmin/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/kostum.js"></script>
 <script src="<?php echo base_url() ?>assets/smartadmin/js/jquery.mask.min.js"></script>
-<script>
+<!-- <script>
     $(document).ready(function() {
         $('#jumlah').mask('#.##0', {
             reverse: true
         });
     })
-</script>
+</script> -->
