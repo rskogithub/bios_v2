@@ -31,7 +31,7 @@
                                     <td width='200'>Nama Bank</td>
                                     <td>
                                         <?php if (empty($kdbank)) {
-                                            echo select2_dinamis_custom('kdbank', 'm_bank', 'kode', 'uraian', '', 'LEFT(kode, "1") = "4"', '');
+                                            echo select2_dinamis_custom('kdbank', 'm_bank', 'kode', 'uraian', '', '', '');
                                         } else {
                                         ?>
                                             <select name="kdbank" id="kd_akun" class="form-control select2">
