@@ -93,7 +93,7 @@ class T_kes_ikt_tanggap_komplain_model extends CI_Model
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> ' . $result['message'] . '</strong></div>');
-            redirect(site_url('t_kes_ikt_resiko_jatuh'));
+            redirect(site_url('t_kes_ikt_tanggap_komplain'));
         } else {
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -141,9 +141,9 @@ class T_kes_ikt_tanggap_komplain_model extends CI_Model
     }
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
         return $this->db->get($this->table)->row();
     }
 

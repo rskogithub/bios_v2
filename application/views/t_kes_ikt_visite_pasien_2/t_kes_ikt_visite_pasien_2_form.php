@@ -41,6 +41,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data pada saat tanggal berkenaan, tidak bersifat akumulatif..
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data dikirimkan per periode harian.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

@@ -78,9 +78,9 @@ class T_kes_ikt_tanggap_komplain extends CI_Controller
         }
     }
 
-    public function update($id)
+    public function update($tgl_transaksi)
     {
-        $row = $this->T_kes_ikt_tanggap_komplain_model->get_by_id($id);
+        $row = $this->T_kes_ikt_tanggap_komplain_model->get_by_id($tgl_transaksi);
 
         if ($row) {
             $data = array(
@@ -95,7 +95,10 @@ class T_kes_ikt_tanggap_komplain extends CI_Controller
             );
             $this->template->load('template', 't_kes_ikt_tanggap_komplain/t_kes_ikt_tanggap_komplain_form', $data);
         } else {
-            $this->session->set_flashdata('warning', 'Record Not Found');
+            $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+            </button><strong> Data Tidak Tersedia</strong></div>');
             redirect(site_url('t_kes_ikt_tanggap_komplain'));
         }
     }
@@ -107,17 +110,12 @@ class T_kes_ikt_tanggap_komplain extends CI_Controller
         // if ($this->form_validation->run() == FALSE) {
         //     $this->update($this->input->post('id', TRUE));
         // } else {
+        $tanggal = date('Y-m-d', strtotime($this->input->post('tgl_transaksi', TRUE)));
         $data = array(
-            'tgl_transaksi' => $this->input->post('tgl_transaksi', TRUE),
+            'tgl_transaksi' => $tanggal,
             'jumlah' => $this->input->post('jumlah', TRUE),
-            'message' => $this->input->post('message', TRUE),
-            'user' => $this->input->post('user', TRUE),
-            'create_date' => $this->input->post('create_date', TRUE),
         );
-
-        $this->T_kes_ikt_tanggap_komplain_model->update($this->input->post('id', TRUE), $data);
-        $this->session->set_flashdata('success', ' Update Record Success');
-        redirect(site_url('t_kes_ikt_tanggap_komplain'));
+        $this->T_kes_ikt_tanggap_komplain_model->update_kes_ikt_tanggap_komplain($data);
         // }
     }
 

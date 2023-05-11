@@ -40,6 +40,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data pada saat tanggal berkenaan, tidak bersifat akumulatif..
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data dikirimkan per periode semesteran. Data yang dikirimkan sesuai dengan PerMenPanRB Nomor 14 tahun 2017.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
