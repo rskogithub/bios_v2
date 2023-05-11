@@ -53,7 +53,7 @@
                 $this->db->where('is_main_menu', $menu->id_menu);
                 $this->db->where('group_menu', 'simrs');
                 $this->db->where('is_aktif', 'y');
-                $this->db->order_by('title', 'ASC');
+                $this->db->order_by('id_menu', 'ASC');
                 $submenu = $this->db->get('tbl_menu');
                 // if ($submenu->num_rows() > 0) {
                 //     // display sub menu
