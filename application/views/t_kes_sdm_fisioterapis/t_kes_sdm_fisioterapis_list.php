@@ -4,7 +4,7 @@
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>KELOLA DATA T_KES_SDM_FISIOTERAPIS</h2>
+                    <h2>KELOLA DATA SDM - FISIOTERAPIS</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -26,7 +26,7 @@
                                     <th>Non Pns Tetap</th>
                                     <th>Kontrak</th>
                                     <th>Create Date</th>
-                                    <!-- <th width="200px">Action</th> -->
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
@@ -43,6 +43,11 @@
                                         <td><?php echo $row['non_pns_tetap'] ?></td>
                                         <td><?php echo $row['kontrak'] ?></td>
                                         <td><?php echo $row['updated_at'] ?></td>
+                                        <td style="text-align:center">
+                                            <?php
+                                            echo anchor(site_url('t_kes_sdm_fisioterapis/update/' . $row['tgl_transaksi']), '<i class="fal fa-pencil" aria-hidden="true"></i>', 'class="btn btn-warning btn-xs waves-effect waves-themed"');
+                                            ?>
+                                        </td>
                                     </tr>
                                 <?php
                                 }

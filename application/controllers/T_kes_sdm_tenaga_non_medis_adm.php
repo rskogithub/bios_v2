@@ -93,9 +93,9 @@ class T_kes_sdm_tenaga_non_medis_adm extends CI_Controller
         }
     }
 
-    public function update($id)
+    public function update($tgl_transaksi, $keterangan)
     {
-        $row = $this->T_kes_sdm_tenaga_non_medis_adm_model->get_by_id($id);
+        $row = $this->T_kes_sdm_tenaga_non_medis_adm_model->get_by_id($tgl_transaksi, $keterangan);
 
         if ($row) {
             $data = array(
@@ -115,7 +115,10 @@ class T_kes_sdm_tenaga_non_medis_adm extends CI_Controller
             );
             $this->template->load('template', 't_kes_sdm_tenaga_non_medis_adm/t_kes_sdm_tenaga_non_medis_adm_form', $data);
         } else {
-            $this->session->set_flashdata('warning', 'Record Not Found');
+            $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    </button><strong> Data Tidak Tersedia</strong></div>');
             redirect(site_url('t_kes_sdm_tenaga_non_medis_adm'));
         }
     }
@@ -127,22 +130,17 @@ class T_kes_sdm_tenaga_non_medis_adm extends CI_Controller
         // if ($this->form_validation->run() == FALSE) {
         //     $this->update($this->input->post('id', TRUE));
         // } else {
+        $tanggal = date('Y-m-d', strtotime($this->input->post('tgl_transaksi', TRUE)));
         $data = array(
-            'tgl_transaksi' => $this->input->post('tgl_transaksi', TRUE),
+            'tgl_transaksi' => $tanggal,
             'keterangan' => $this->input->post('keterangan', TRUE),
             'pns' => $this->input->post('pns', TRUE),
             'pppk' => $this->input->post('pppk', TRUE),
             'anggota' => $this->input->post('anggota', TRUE),
             'non_pns_tetap' => $this->input->post('non_pns_tetap', TRUE),
             'kontrak' => $this->input->post('kontrak', TRUE),
-            'message' => $this->input->post('message', TRUE),
-            'user' => $this->input->post('user', TRUE),
-            'create_date' => $this->input->post('create_date', TRUE),
         );
-
-        $this->T_kes_sdm_tenaga_non_medis_adm_model->update($this->input->post('id', TRUE), $data);
-        $this->session->set_flashdata('success', ' Update Record Success');
-        redirect(site_url('t_kes_sdm_tenaga_non_medis_adm'));
+        $this->T_kes_sdm_tenaga_non_medis_adm_model->update_kes_sdm_tenaga_non_medis_adm($data);
         // }
     }
 

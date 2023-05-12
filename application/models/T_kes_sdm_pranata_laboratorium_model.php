@@ -147,9 +147,9 @@ class T_kes_sdm_pranata_laboratorium_model extends CI_Model
     }
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
         return $this->db->get($this->table)->row();
     }
 

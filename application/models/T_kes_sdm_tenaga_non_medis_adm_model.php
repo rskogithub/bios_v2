@@ -136,7 +136,6 @@ class T_kes_sdm_tenaga_non_medis_adm_model extends CI_Model
         return $hasil;
     }
 
-
     // datatables
     function json()
     {
@@ -151,9 +150,10 @@ class T_kes_sdm_tenaga_non_medis_adm_model extends CI_Model
     }
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi, $keterangan)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('keterangan', $keterangan);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
         return $this->db->get($this->table)->row();
     }
 

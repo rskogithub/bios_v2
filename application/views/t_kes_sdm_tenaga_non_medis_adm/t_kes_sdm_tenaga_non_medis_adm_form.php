@@ -30,15 +30,22 @@
                                 <tr>
                                     <td width='200'>Keterangan</td>
                                     <td>
+                                        <?php if (empty($keterangan)) { ?>
+                                            <select name="keterangan" id="keterangan" class="select2 form-control w-100" required>
+                                                <option value="">Pilih Keterangan</option>
+                                                <option value="Umum">Umum</option>
+                                                <option value="Keuangan">Keuangan</option>
+                                                <option value="SDM">SDM</option>
+                                                <option value="Humas">Humas</option>
+                                                <option value="BMN">BMN</option>
+                                            </select>
+                                        <?php } else { ?>
+                                            <input type="text" id="example-date" class="form-control" name="keterangan" id="keterangan" value="<?php echo $keterangan; ?>" readonly />
+                                        <?php
+                                        }
+                                        ?>
                                         <!-- <input type="text" class="form-control" name="keterangan" id="keterangan" placeholder="Keterangan" value="<?php echo $keterangan; ?>" /> -->
-                                        <select name="keterangan" id="keterangan" class="select2 form-control w-100" required>
-                                            <option value="">Pilih Keterangan</option>
-                                            <option value="Umum">Umum</option>
-                                            <option value="Keuangan">Keuangan</option>
-                                            <option value="SDM">SDM</option>
-                                            <option value="Humas">Humas</option>
-                                            <option value="BMN">BMN</option>
-                                        </select>
+
                                     </td>
                                 </tr>
                                 <tr>
