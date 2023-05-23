@@ -1,4 +1,5 @@
 <main id="js-page-content" role="main" class="page-content">
+    <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
     <div class="row">
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
@@ -23,7 +24,7 @@
                                     <th>Jumlah NON BPJS</th>
                                     <th>Nama Satker</th>
                                     <th>Create Date</th>
-                                    <!-- <th width="200px">Action</th> -->
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +38,11 @@
                                         <td><?php echo $row['jumlah_non_bpjs'] ?></td>
                                         <td><?php echo $row['nmsatker'] ?></td>
                                         <td><?php echo $row['updated_at'] ?></td>
+                                        <td style="text-align:center">
+                                            <?php
+                                            echo anchor(site_url('t_kes_lay_pasien_bpjs_nonbpjs/update/' . $row['tgl_transaksi']), '<i class="fal fa-pencil" aria-hidden="true"></i>', 'class="btn btn-warning btn-xs waves-effect waves-themed"');
+                                            ?>
+                                        </td>
                                     </tr>
                                 <?php
                                 }

@@ -30,7 +30,14 @@
                                 <tr>
                                     <td width='200'>Kode Kelas</td>
                                     <td>
-                                        <?php echo select2_dinamis_custom('kode_kelas', 'm_kelas_rs', 'kode_kelas', 'nama_kelas', '', 'aktif = "0"', '') ?>
+                                        <?php if (empty($kode_kelas)) { ?>
+                                            <?php echo select2_dinamis_custom('kode_kelas', 'm_kelas_rs', 'kode_kelas', 'nama_kelas', '', 'aktif = "0"', '') ?>
+                                        <?php } else { ?>
+                                            <input type="text" id="kode_kelas" class="form-control" name="kode_kelas" value="<?php echo $kode_kelas; ?>" readonly />
+                                        <?php
+                                        }
+                                        ?>
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -46,6 +53,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data terakhir pada saat tanggal berkenaan, bersifat akumulatif.
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data dikirimkan per periode harian.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

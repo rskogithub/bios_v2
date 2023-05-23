@@ -44,6 +44,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data terakhir pada saat tanggal berkenaan, bersifat akumulatif.
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data dikirimkan per periode harian. Data dipisahkan antara pasien BPJS dan Non - BPJS.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

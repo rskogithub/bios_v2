@@ -31,7 +31,13 @@
                                     <td width='200'>Nama Poli</td>
                                     <!-- <td><input type="text" class="form-control" name="nama_poli" id="nama_poli" placeholder="Nama Poli" value="<?php echo $nama_poli; ?>" /></td> -->
                                     <td>
-                                        <?php echo select2_dinamis_custom('nama_poli', 'm_poli_sub', 'nama_poli_sub', 'nama_poli_sub', '', '', '') ?>
+                                        <?php if (empty($nama_poli)) { ?>
+                                            <?php echo select2_dinamis_custom('nama_poli', 'm_poli_sub', 'nama_poli_sub', 'nama_poli_sub', '', '', '') ?>
+                                        <?php } else { ?>
+                                            <input type="text" id="nama_poli" class="form-control" name="nama_poli" value="<?php echo $nama_poli; ?>" readonly />
+                                        <?php
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -47,6 +53,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data terakhir pada saat tanggal berkenaan, bersifat akumulatif.
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data dikirimkan per periode harian.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

@@ -95,7 +95,10 @@ class T_kes_lay_bto extends CI_Controller
             );
             $this->template->load('template', 't_kes_lay_bto/t_kes_lay_bto_form', $data);
         } else {
-            $this->session->set_flashdata('warning', 'Record Not Found');
+            $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    </button><strong> Data Tidak Tersedia</strong></div>');
             redirect(site_url('t_kes_lay_bto'));
         }
     }
@@ -107,17 +110,12 @@ class T_kes_lay_bto extends CI_Controller
         // if ($this->form_validation->run() == FALSE) {
         //     $this->update($this->input->post('id', TRUE));
         // } else {
+        $tanggal = date('Y-m-d', strtotime($this->input->post('tgl_transaksi', TRUE)));
         $data = array(
-            'tgl_transaksi' => $this->input->post('tgl_transaksi', TRUE),
+            'tgl_transaksi' => $tanggal,
             'bto' => $this->input->post('bto', TRUE),
-            'message' => $this->input->post('message', TRUE),
-            'user' => $this->input->post('user', TRUE),
-            'create_date' => $this->input->post('create_date', TRUE),
         );
-
-        $this->T_kes_lay_bto_model->update($this->input->post('id', TRUE), $data);
-        $this->session->set_flashdata('success', ' Update Record Success');
-        redirect(site_url('t_kes_lay_bto'));
+        $this->T_kes_lay_bto_model->update_kes_lay_bto($data);
         // }
     }
 

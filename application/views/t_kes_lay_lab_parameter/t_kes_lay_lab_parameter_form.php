@@ -29,7 +29,15 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Nama Layanan</td>
-                                    <td><input type="text" class="form-control" name="nama_layanan" id="nama_layanan" placeholder="Nama Layanan" value="<?php echo $nama_layanan; ?>" /></td>
+                                    <td>
+                                        <?php if (empty($nama_layanan)) { ?>
+                                            <input type="text" class="form-control" name="nama_layanan" id="nama_layanan" placeholder="Nama Layanan" value="<?php echo $nama_layanan; ?>" required />
+                                        <?php } else { ?>
+                                            <input type="text" class="form-control" name="nama_layanan" id="nama_layanan" placeholder="Nama Layanan" value="<?php echo $nama_layanan; ?>" readonly />
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Jumlah</td>
@@ -44,6 +52,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data terakhir pada saat tanggal berkenaan, bersifat akumulatif.
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data dikirimkan per periode harian.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

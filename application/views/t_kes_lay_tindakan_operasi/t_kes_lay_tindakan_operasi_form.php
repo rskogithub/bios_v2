@@ -29,7 +29,16 @@
                                 </tr>
                                 <tr>
                                     <td width='200'>Klasifikasi Operasi</td>
-                                    <td><input type="text" class="form-control" name="klasifikasi_operasi" id="klasifikasi_operasi" placeholder="Berat, Sedang, Ringan, Canggih dsb" value="<?php echo $klasifikasi_operasi; ?>" /></td>
+                                    <td>
+
+                                        <?php if (empty($klasifikasi_operasi)) { ?>
+                                            <input type="text" class="form-control" name="klasifikasi_operasi" id="klasifikasi_operasi" placeholder="Berat, Sedang, Ringan, Canggih dsb" value="<?php echo $klasifikasi_operasi; ?>" required />
+                                        <?php } else { ?>
+                                            <input type="text" id="klasifikasi_operasi-date" class="form-control" name="klasifikasi_operasi" value="<?php echo $klasifikasi_operasi; ?>" readonly />
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Jumlah</td>
@@ -44,6 +53,14 @@
                                 </tr>
                             </table>
                         </form>
+                        <div>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data yang dikirimkan merupakan posisi data terakhir pada saat tanggal berkenaan, bersifat akumulatif.
+                            </p>
+                            <p style="margin-bottom: 0px; color:red;">
+                                - Data dikirimkan per periode harian.
+                            </p>
+                        </div>
                     </div>
                 </div>
 

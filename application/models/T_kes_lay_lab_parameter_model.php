@@ -141,9 +141,10 @@ class T_kes_lay_lab_parameter_model extends CI_Model
     }
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi, $nama_layanan)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
+        $this->db->where('nama_layanan', $nama_layanan);
         return $this->db->get($this->table)->row();
     }
 

@@ -23,7 +23,7 @@
                                     <th>Nilai Indeks</th>
                                     <th>Nama Satker</th>
                                     <th>Create Date</th>
-                                    <!-- <th width="200px">Action</th> -->
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,6 +36,11 @@
                                         <td><?php echo $row['nilai_indeks'] ?></td>
                                         <td><?php echo $row['nmsatker'] ?></td>
                                         <td><?php echo $row['updated_at'] ?></td>
+                                        <td style="text-align:center">
+                                            <?php
+                                            echo anchor(site_url('t_kes_lay_indeks_kepuasan/update/' . $row['tgl_transaksi']), '<i class="fal fa-pencil" aria-hidden="true"></i>', 'class="btn btn-warning btn-xs waves-effect waves-themed"');
+                                            ?>
+                                        </td>
                                     </tr>
                                 <?php
                                 }

@@ -140,12 +140,11 @@ class T_kes_lay_lab_sampel_model extends CI_Model
     }
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
         return $this->db->get($this->table)->row();
     }
-
     // get total rows
     function total_rows($q = NULL)
     {

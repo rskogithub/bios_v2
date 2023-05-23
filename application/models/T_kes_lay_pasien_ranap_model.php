@@ -144,9 +144,10 @@ class T_kes_lay_pasien_ranap_model extends CI_Model
     }
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($tgl_transaksi, $kode_kelas)
     {
-        $this->db->where($this->id, $id);
+        $this->db->where('tgl_transaksi', $tgl_transaksi);
+        $this->db->where('kode_kelas', $kode_kelas);
         return $this->db->get($this->table)->row();
     }
 
