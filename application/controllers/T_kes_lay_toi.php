@@ -79,7 +79,7 @@ class T_kes_lay_toi extends CI_Controller
 
     public function update($tgl_transaksi)
     {
-        $row = $this->T_kes_lay_tindakan_operasi_model->get_by_id($tgl_transaksi);
+        $row = $this->T_kes_lay_toi_model->get_by_id($tgl_transaksi);
 
 
         if ($row) {
