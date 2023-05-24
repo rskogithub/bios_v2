@@ -45,7 +45,7 @@
                                 - Data yang dikirimkan merupakan posisi data terakhir pada saat tanggal berkenaan, bersifat akumulatif.
                             </p>
                             <p style="margin-bottom: 0px; color:red;">
-                                - Data dikirimkan per periode harian. Data yang dikirimkan merupakan resep yang dilayani oleh bagian farmasi atau resep yang masuk ke bagian farmasi baik dari luar maupun dari dalam Rumah Sakit.
+                                - Data dikirimkan per periode harian.
                             </p>
                         </div>
                     </div>
