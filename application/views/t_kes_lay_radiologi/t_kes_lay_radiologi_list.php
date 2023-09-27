@@ -13,8 +13,9 @@
                 </div>
                 <div class="panel-container show">
                     <div class="panel-content">
-                        <div class="text-center">
-                            <?php echo anchor(site_url('t_kes_lay_radiologi/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?></div>
+                        <!-- <div class="text-center">
+                            <?php echo anchor(site_url('t_kes_lay_radiologi/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?>
+                        </div> -->
                         <table class="table table-bordered table-hover table-striped w-100" id="dt-basic-example">
                             <thead>
                                 <tr>
