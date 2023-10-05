@@ -20,11 +20,11 @@ class T_kes_lay_lab_parameter_model extends CI_Model
         $client = new Client();
         $response = $client->request(
             'POST',
-            'https://training-bios2.kemenkeu.go.id/api/token',
+            'https://bios.kemenkeu.go.id/api/token',
             [
                 'form_params' => [
                     'satker' => '415670',
-                    'key' => 'liLUUX5GwITpoFHDP7PxIJlOwkO5kysz'
+                    'key' => 'RzMss9waUcqzeCJ3D4PNYbCGfmq3ojdv'
                 ]
             ]
         )->getBody()->getContents();
@@ -32,7 +32,7 @@ class T_kes_lay_lab_parameter_model extends CI_Model
         $get_token = $token['token'];
 
         $this->_client = new Client([
-            'base_uri' => 'https://training-bios2.kemenkeu.go.id/api/ws/',
+            'base_uri' => 'https://bios.kemenkeu.go.id/api/ws/',
             'headers' => [
                 'Token' => $get_token,
             ]
@@ -117,7 +117,7 @@ class T_kes_lay_lab_parameter_model extends CI_Model
         $data = array(
             'tgl_transaksi' => '',
         );
-        $response = $this->_client->request('POST', 'https://training-bios2.kemenkeu.go.id/api/get/data/kesehatan/layanan/laboratorium_detail', [
+        $response = $this->_client->request('POST', 'https://bios.kemenkeu.go.id/api/get/data/kesehatan/layanan/laboratorium_detail', [
             // 'debug' => true,
             'form_params' => $data
         ]);
