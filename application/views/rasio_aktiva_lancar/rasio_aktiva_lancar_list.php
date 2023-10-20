@@ -20,7 +20,7 @@
             <thead>
                 <tr>
                     <th width="30px">No</th>
-		    <th>Kode</th>
+		    <!-- <th>Kode</th> -->
 		    <th>Tanggal</th>
 		    <th>Aktiva Lancar</th>
 		    <th>Rencana Penggunaan Saldo BLU</th>
@@ -102,7 +102,7 @@
                         {
                             "data": "no_id",
                             "orderable": false
-                        },{"data": "kode"},{"data": "tanggal"},{"data": "aktiva_lancar", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "plan_pgunaan_saldo_blu", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "kewajiban_lancar", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "rasio_lancar"},
+                        },{"data": "tanggal"},{"data": "aktiva_lancar", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "plan_pgunaan_saldo_blu", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "kewajiban_lancar", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "rasio_lancar"},
                         {
                             "data" : "action",
                             "orderable": false,
