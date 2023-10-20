@@ -3,7 +3,7 @@
     <div class="col-xl-12">
         <div id="panel-1" class="panel">
             <div class="panel-hdr">
-                <h2>KELOLA DATA RASIO LANCAR</h2>
+                <h2>KELOLA DATA RASIO POBO</h2>
                 <div class="panel-toolbar">
                     <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                     <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -13,19 +13,19 @@
             <div class="panel-container show">
                 <div class="panel-content">
                     <div class="text-center">
-        <?php echo anchor(site_url('rasio_aktiva_lancar/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?>
-		<?php echo anchor(site_url('rasio_aktiva_lancar/excel'), '<i class="fal fa-file-excel" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-outline-success btn-sm waves-effect waves-themed"'); ?>
-		<?php echo anchor(site_url('rasio_aktiva_lancar/word'), '<i class="fal fa-file-word" aria-hidden="true"></i> Export Ms Word', 'class="btn btn-outline-primary btn-sm waves-effect waves-themed"'); ?></div>
+        <?php echo anchor(site_url('rasio_pobo/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?>
+		<?php echo anchor(site_url('rasio_pobo/excel'), '<i class="fal fa-file-excel" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-outline-success btn-sm waves-effect waves-themed"'); ?></div>
         <table class="table table-bordered table-hover table-striped w-100" id="dt-basic-example">
             <thead>
                 <tr>
                     <th width="30px">No</th>
-		    <th>Kode</th>
+		    <!-- <th>Kode</th> -->
 		    <th>Tanggal</th>
-		    <th>Aktiva Lancar</th>
-		    <th>Rencana Penggunaan Saldo BLU</th>
-		    <th>Kewajiban Lancar</th>
-		    <th>Rasio Lancar</th>
+		    <th>Total Pendapatan</th>
+		    <th>Pendapatan Apbn</th>
+		    <th>Total Beban</th>
+		    <th>Beban penyusutan dan amortisasi</th>
+		    <th>Rasio Pobo</th>
 		    <th width="200px">Action</th>
                 </tr>
             </thead>
@@ -97,12 +97,12 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "rasio_aktiva_lancar/json", "type": "POST"},
+                    ajax: {"url": "rasio_pobo/json", "type": "POST"},
                     columns: [
                         {
                             "data": "no_id",
                             "orderable": false
-                        },{"data": "kode"},{"data": "tanggal"},{"data": "aktiva_lancar", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "plan_pgunaan_saldo_blu", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "kewajiban_lancar", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "rasio_lancar"},
+                        },{"data": "tanggal"},{"data": "pobo_total_pendapatan", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "pobo_pendapatan_apbn", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "pobo_total_beban", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "pobo_beban_susut_amor", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "rasio_pobo"},
                         {
                             "data" : "action",
                             "orderable": false,

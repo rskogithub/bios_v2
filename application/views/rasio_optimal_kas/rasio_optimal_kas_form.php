@@ -20,7 +20,7 @@
          <td width='200'>Indikator <?php echo form_error('kode') ?></td>
          <td><?php echo select2_dinamis('kode', 'master_rasio', 'kode', 'rasio',  $kode, '', 'kode ASC') ?></td>
         </tr> -->
-	    <tr><td width='200'>Tanggal</td><td><input type="date" class="form-control"  id="example-date" name="tanggal" id="datepicker-1" placeholder="Tanggal" value="<?php echo $tanggal; ?>"    /></td></tr>
+	    <tr><td width='200'>Tanggal</td><td><input type="date" class="form-control"  id="example-date" name="tanggal" id="datepicker-1" placeholder="Tanggal" value="<?php echo $tanggal; ?>"   required/></td></tr>
 	    <tr><td width='200'>Pendapatan bunga atas pengelolaan kas</td><td><input type="number" class="form-control" name="pdptn_bunga_atas_pnglolan_kas" id="pdptn_bunga_atas_pnglolan_kas" placeholder="Pendapatan bunga atas pengelolaan kas" value="<?php echo $pdptn_bunga_atas_pnglolan_kas; ?>"    /></td></tr>
 	    <tr><td width='200'>Saldo Rekening Pengelolaan Kas</td><td><input type="number" class="form-control" name="saldo_rekening_pnglolaan_kas" id="saldo_rekening_pnglolaan_kas" placeholder="Saldo Rekening Pengelolaan Kas" value="<?php echo $saldo_rekening_pnglolaan_kas; ?>"    /></td></tr>
 	    <tr><td width='200'>Saldo Rekening Operasional</td><td><input type="number" class="form-control" name="saldo_rekening_oprsnl" id="saldo_rekening_oprsnl" placeholder="Saldo Rekening Operasional" value="<?php echo ($saldo_rekening_oprsnl); ?>"    /></td></tr>

@@ -21,10 +21,10 @@
                     <th width="30px">No</th>
 		    <!-- <th>Kode</th> -->
 		    <th>Tanggal</th>
-		    <th>Pdptn Bunga Atas Pnglolan Kas</th>
-		    <th>Saldo Rekening Pnglolaan Kas</th>
-		    <th>Saldo Rekening Oprsnl</th>
-		    <th>Rasio Optimal Kas</th>
+		    <th>Pendapatan bunga atas pengelolaan kas</th>
+		    <th>Saldo Rekening Pengelolaan Kas</th>
+		    <th>Saldo Rekening Operasional</th>
+		    <th>Rasio Optimalisasi Kas</th>
 		    <!-- <th>F8</th>
 		    <th>F9</th> -->
 		    <th width="200px">Action</th>
@@ -106,7 +106,7 @@
                         },
                         // {"data": "kode"},{"data": "tanggal"},{"data": "pdptn_bunga_atas_pnglolan_kas"},{"data": "saldo_rekening_pnglolaan_kas"},{"data": "saldo_rekening_oprsnl"},{"data": "rasio_optimal_kas"},{"data": "f8"},{"data": "f9"}
                         // ,
-                        {"data": "tanggal"},{"data": "pdptn_bunga_atas_pnglolan_kas"},{"data": "saldo_rekening_pnglolaan_kas"},{"data": "saldo_rekening_oprsnl"},{"data": "rasio_optimal_kas"},
+                        {"data": "tanggal"},{"data": "pdptn_bunga_atas_pnglolan_kas", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "saldo_rekening_pnglolaan_kas", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "saldo_rekening_oprsnl", render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp ' )},{"data": "rasio_optimal_kas"},
                         {
                             "data" : "action",
                             "orderable": false,

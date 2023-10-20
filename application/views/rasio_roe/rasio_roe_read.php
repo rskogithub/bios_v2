@@ -3,7 +3,7 @@
     <div class="col-xl-12">
         <div id="panel-1" class="panel">
             <div class="panel-hdr">
-                <h2>Rasio Optimalisasi Kas Read</h2>
+                <h2>Imbalan atas Ekuitas (ROE) Read</h2>
                 <div class="panel-toolbar">
                     <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                     <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -13,15 +13,12 @@
             <div class="panel-container show">
                 <div class="panel-content">
         <table class="table table-striped">
-	    <!-- <tr><td>Kode</td><td><?php echo $kode; ?></td></tr> -->
+	    <tr><td>Kode</td><td><?php echo $kode; ?></td></tr>
 	    <tr><td>Tanggal</td><td><?php echo $tanggal; ?></td></tr>
-	    <tr><td>Pendapatan bunga atas pengelolaan kas</td><td><?php echo $pdptn_bunga_atas_pnglolan_kas; ?></td></tr>
-	    <tr><td>Saldo Rekening Pnglolaan Kas</td><td><?php echo $saldo_rekening_pnglolaan_kas; ?></td></tr>
-	    <tr><td>Saldo Rekening Pengelolaan Kas</td><td><?php echo $saldo_rekening_oprsnl; ?></td></tr>
-	    <tr><td>Saldo Rekening Operasional</td><td><?php echo $rasio_optimal_kas; ?></td></tr>
-	    <!-- <tr><td>F8</td><td><?php echo $f8; ?></td></tr>
-	    <tr><td>F9</td><td><?php echo $f9; ?></td></tr> -->
-	    <tr><td></td><td><a href="<?php echo site_url('rasio_optimal_kas') ?>" class="btn btn-primary waves-effect waves-themed">Kembali</a></td></tr>
+	    <tr><td>Roe Surplus / Defisit</td><td><?php echo $roe_surplus_defisit; ?></td></tr>
+	    <tr><td>Roe Total Ekuitas</td><td><?php echo $roe_tot_ekuitas; ?></td></tr>
+	    <tr><td>Total Rasio Roe</td><td><?php echo $total_roe; ?></td></tr>
+	    <tr><td></td><td><a href="<?php echo site_url('rasio_roe') ?>" class="btn btn-primary waves-effect waves-themed">Kembali</a></td></tr>
 	</table>
 </div>
 </div>
