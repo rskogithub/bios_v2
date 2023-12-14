@@ -114,20 +114,20 @@ class T_kes_keu_penerimaan_model extends CI_Model
 
 
     // get all
-    function get_all()
-    {
-        $data = array(
-            'tgl_transaksi' => '',
-        );
-        $response = $this->_client->request('POST', 'https://bios.kemenkeu.go.id/api/get/data/keuangan/akuntansi/penerimaan', [
-            // 'debug' => true,
-            'form_params' => $data
-        ]);
-        $result = json_decode($response->getBody()->getContents(), true);
+    // function get_all()
+    // {
+    //     $data = array(
+    //         'tgl_transaksi' => '',
+    //     );
+    //     $response = $this->_client->request('POST', 'https://bios.kemenkeu.go.id/api/get/data/keuangan/akuntansi/penerimaan', [
+    //         // 'debug' => true,
+    //         'form_params' => $data
+    //     ]);
+    //     $result = json_decode($response->getBody()->getContents(), true);
 
-        $hasil = $result['data']['datas'];
-        return $hasil;
-    }
+    //     $hasil = $result['data']['datas'];
+    //     return $hasil;
+    // }
 
     // datatables
     function json()
@@ -144,11 +144,11 @@ class T_kes_keu_penerimaan_model extends CI_Model
     }
 
     // get all
-    // function get_all()
-    // {
-    //     $this->db->order_by($this->id, $this->order);
-    //     return $this->db->get($this->table)->result();
-    // }
+    function get_all()
+    {
+        $this->db->order_by($this->id, $this->order);
+        return $this->db->get($this->table)->result();
+    }
 
     // get data by id
     function get_by_id($tgl_transaksi, $kd_akun)

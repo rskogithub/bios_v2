@@ -30,21 +30,12 @@
                                 </tr>
                             </thead>
 
-                            <tbody><?php $start = 0;
-                                    foreach ($data as $row) {
-                                        // $this->db->where('kode', $row['kdbank']);
-                                        // $bank = $this->db->get('m_bank')->result();
-                                    ?>
+                            <!-- <tbody><?php $start = 0;
+                                        foreach ($datas as $row) {
+                                        ?>
                                     <tr>
                                         <td width="2%"><?php echo $row['rn'] ?></td>
                                         <td><?php echo $row['tgl_transaksi'] ?></td>
-                                        <!-- <td>
-                                            <?php
-                                            foreach ($bank as $banks) {
-                                                echo '' . $banks->uraian . '';
-                                            }
-                                            ?>
-                                        </td> -->
                                         <td><?php echo $row['no_bilyet'] ?></td>
                                         <td><?php echo formatRP($row['nilai_deposito']) ?></td>
                                         <td><?php echo $row['nilai_bunga'] ?></td>
@@ -53,6 +44,28 @@
                                         <td style="text-align:center">
                                             <?php
                                             echo anchor(site_url('t_kes_keu_saldo_pengelolaan_kas/update/' . $row['tgl_transaksi'] . '/' . $row['no_bilyet']), '<i class="fal fa-pencil" aria-hidden="true"></i>', 'class="btn btn-warning btn-xs waves-effect waves-themed"');
+                                            ?>
+                                        </td>
+                                    </tr>
+                                <?php
+                                        }
+                                ?>
+                            </tbody> -->
+
+                            <tbody><?php $start = 0;
+                                    foreach ($data as $row) {
+                                    ?>
+                                    <tr>
+                                        <td width="2%" class="text-center"><?php echo ++$start ?></td>
+                                        <td><?php echo $row->tgl_transaksi ?></td>
+                                        <td><?php echo $row->no_bilyet ?></td>
+                                        <td><?php echo formatRP($row->nilai_deposito) ?></td>
+                                        <td><?php echo $row->nilai_bunga ?></td>
+                                        <td><?php echo $row->user ?></td>
+                                        <td><?php echo $row->create_date ?></td>
+                                        <td style="text-align:center">
+                                            <?php
+                                            echo anchor(site_url('t_kes_keu_saldo_pengelolaan_kas/update/' . $row->tgl_transaksi . '/' . $row->no_bilyet), '<i class="fal fa-pencil" aria-hidden="true"></i>', 'class="btn btn-warning btn-xs waves-effect waves-themed"');
                                             ?>
                                         </td>
                                     </tr>
