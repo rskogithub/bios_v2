@@ -97,7 +97,7 @@ class T_kes_keu_saldo_pengelolaan_kas_model extends CI_Model
         // print_r($result);
         if ($result['status'] == 'MSG20003') {
             $this->db->where('tgl_transaksi', $data['tgl_transaksi']);
-            $this->db->where('no_bilyet', 'd1');
+            $this->db->where('no_bilyet', $data['no_bilyet']);
             $this->db->update($this->table, $return_data);
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
