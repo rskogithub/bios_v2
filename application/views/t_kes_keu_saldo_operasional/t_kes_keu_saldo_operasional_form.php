@@ -33,8 +33,23 @@
                                         <!-- <?php if (empty($kdbank)) {
                                                     echo select2_dinamis_custom('kdbank', 'm_bank', 'kode', 'uraian', '', '', '');
                                                 } else {
-                                                ?> -->
+                                                ?>
+                                            <select name="kdbank" id="kd_akun" class="form-control select2">
+                                                <?php foreach ($get_bank as $row) : ?>
+                                                    <?php $selected = ''; ?>
+                                                    <?php $disabled = 'disabled'; ?>
+                                                    <?php if ($row['kode'] == $kdbank) : ?>
+                                                        <?php $selected = 'selected'; ?>
+                                                        <?php $disabled = ''; ?>
+                                                    <?php endif; ?>
+                                                    <option value="<?php echo $row['kode']; ?>" <?php echo $selected; ?><?php echo $disabled; ?>><?php echo $row['uraian']; ?> </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        <?php
+                                                }
+                                        ?> -->
                                         <select name="kdbank" id="kd_akun" class="form-control select2">
+                                            <option value=""></option>
                                             <?php foreach ($get_bank as $row) : ?>
                                                 <?php $selected = ''; ?>
                                                 <?php $disabled = 'disabled'; ?>
@@ -42,12 +57,9 @@
                                                     <?php $selected = 'selected'; ?>
                                                     <?php $disabled = ''; ?>
                                                 <?php endif; ?>
-                                                <option value="<?php echo $row['kode']; ?>" <?php echo $selected; ?><?php echo $disabled; ?>><?php echo $row['uraian']; ?> </option>
+                                                <option value="<?php echo $row['kode']; ?>" <?php echo $selected; ?>><?php echo $row['uraian']; ?> </option>
                                             <?php endforeach; ?>
                                         </select>
-                                        <!-- <?php
-                                                }
-                                                ?> -->
                                     </td>
                                 </tr>
                                 <tr>
